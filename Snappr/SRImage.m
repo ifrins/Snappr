@@ -36,9 +36,10 @@
     
     
     if ([[url host] isEqual:@"imgur.com"]) {
-        imageLink =[NSString stringWithFormat:@"http://i.imgur.com%@.jpg", [url relativePath]];
-    
-    } else if ([[url host] isEqual:@"reddit.com"]) {
+        imageLink = [NSString stringWithFormat:@"http://i.imgur.com%@.jpg", [url relativePath]];
+    } else if ([[url host] isEqual:@"www.flickr.com"] || [[url host] isEqual:@"500px.com"]) {
+        imageLink = [NSString stringWithFormat:@"https://vevelt-backend.appspot.com/snappr/link?link=%@", [image stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    } else if ([[url host] isEqual:@"www.reddit.com"]) {
         imageLink = @"";
     
     } else {

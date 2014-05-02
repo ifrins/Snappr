@@ -13,15 +13,13 @@
 		1D3237661912AEBA009F2EA3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3237651912AEBA009F2EA3 /* WebKit.framework */; };
 		1D3237681912B14B009F2EA3 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D3237631912AE03009F2EA3 /* Sparkle.framework */; };
 		1D32376A1912B3BA009F2EA3 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1D3237691912B3BA009F2EA3 /* dsa_pub.pem */; };
-		1D32376D1912B48A009F2EA3 /* SRVevelt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D32376C1912B48A009F2EA3 /* SRVevelt.m */; };
 		1D505750190D6CE300150FFF /* SRWallpaperChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D50574F190D6CE300150FFF /* SRWallpaperChanger.m */; };
 		1D505753190D707500150FFF /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505752190D707500150FFF /* NSMutableArray_Shuffling.m */; };
 		1D505756190D74D000150FFF /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505755190D74D000150FFF /* NSFileManager+DirectoryLocations.m */; };
 		1D50575B190D758A00150FFF /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D50575A190D758A00150FFF /* NSString+MD5.m */; };
 		1D5408FA1913ED98005EFAC1 /* NSTimer+NoodleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5408F91913ED98005EFAC1 /* NSTimer+NoodleExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D5408FD1913EDE2005EFAC1 /* NoodleGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5408FC1913EDE2005EFAC1 /* NoodleGlue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1D5409021913FDFE005EFAC1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1D5409011913FDFE005EFAC1 /* LICENSE */; };
-		1D5409041913FE56005EFAC1 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 1D5409031913FE56005EFAC1 /* Readme.md */; };
+		1D54090719140514005EFAC1 /* SRVevelt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D54090619140514005EFAC1 /* SRVevelt.m */; };
 		1D9520D8190FF8A5002E7B08 /* SRSubredditDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9520D7190FF8A5002E7B08 /* SRSubredditDataStore.m */; };
 		1DE6E661190FEAB400BFCCF1 /* SRSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6E65F190FEAB400BFCCF1 /* SRSetupWindowController.m */; };
 		1DE6E662190FEAB400BFCCF1 /* SRSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE6E660190FEAB400BFCCF1 /* SRSetupWindowController.xib */; };
@@ -69,8 +67,6 @@
 		1D3237631912AE03009F2EA3 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		1D3237651912AEBA009F2EA3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1D3237691912B3BA009F2EA3 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		1D32376B1912B48A009F2EA3 /* SRVevelt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVevelt.h; sourceTree = "<group>"; };
-		1D32376C1912B48A009F2EA3 /* SRVevelt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRVevelt.m; sourceTree = "<group>"; };
 		1D50574E190D6CE300150FFF /* SRWallpaperChanger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWallpaperChanger.h; sourceTree = "<group>"; };
 		1D50574F190D6CE300150FFF /* SRWallpaperChanger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWallpaperChanger.m; sourceTree = "<group>"; };
 		1D505751190D704700150FFF /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
@@ -84,8 +80,8 @@
 		1D5408F91913ED98005EFAC1 /* NSTimer+NoodleExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+NoodleExtensions.m"; sourceTree = "<group>"; };
 		1D5408FB1913EDE2005EFAC1 /* NoodleGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleGlue.h; sourceTree = "<group>"; };
 		1D5408FC1913EDE2005EFAC1 /* NoodleGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleGlue.m; sourceTree = "<group>"; };
-		1D5409011913FDFE005EFAC1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		1D5409031913FE56005EFAC1 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.md; sourceTree = "<group>"; };
+		1D54090519140514005EFAC1 /* SRVevelt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVevelt.h; sourceTree = "<group>"; };
+		1D54090619140514005EFAC1 /* SRVevelt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRVevelt.m; sourceTree = "<group>"; };
 		1D9520D6190FF8A5002E7B08 /* SRSubredditDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRSubredditDataStore.h; sourceTree = "<group>"; };
 		1D9520D7190FF8A5002E7B08 /* SRSubredditDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRSubredditDataStore.m; sourceTree = "<group>"; };
 		1DE6E65E190FEAB400BFCCF1 /* SRSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRSetupWindowController.h; sourceTree = "<group>"; };
@@ -219,10 +215,8 @@
 				1D9520D7190FF8A5002E7B08 /* SRSubredditDataStore.m */,
 				1D32375919129E19009F2EA3 /* SRUtils.h */,
 				1D32375A19129E19009F2EA3 /* SRUtils.m */,
-				1D32376B1912B48A009F2EA3 /* SRVevelt.h */,
-				1D32376C1912B48A009F2EA3 /* SRVevelt.m */,
-				1D5409011913FDFE005EFAC1 /* LICENSE */,
-				1D5409031913FE56005EFAC1 /* Readme.md */,
+				1D54090519140514005EFAC1 /* SRVevelt.h */,
+				1D54090619140514005EFAC1 /* SRVevelt.m */,
 			);
 			path = Snappr;
 			sourceTree = "<group>";
@@ -339,10 +333,8 @@
 				1DF2A7C1190D1A5E00DF084F /* InfoPlist.strings in Resources */,
 				1D32376A1912B3BA009F2EA3 /* dsa_pub.pem in Resources */,
 				1D3237621912A65E009F2EA3 /* Credits.rtf in Resources */,
-				1D5409021913FDFE005EFAC1 /* LICENSE in Resources */,
 				1DE6E662190FEAB400BFCCF1 /* SRSetupWindowController.xib in Resources */,
 				1DF2A7CF190D1A5E00DF084F /* Images.xcassets in Resources */,
-				1D5409041913FE56005EFAC1 /* Readme.md in Resources */,
 				1DF2A7CD190D1A5E00DF084F /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,9 +362,9 @@
 				1DE6E661190FEAB400BFCCF1 /* SRSetupWindowController.m in Sources */,
 				1D505753190D707500150FFF /* NSMutableArray_Shuffling.m in Sources */,
 				1D5408FA1913ED98005EFAC1 /* NSTimer+NoodleExtensions.m in Sources */,
+				1D54090719140514005EFAC1 /* SRVevelt.m in Sources */,
 				1DF2A7EC190D1E9E00DF084F /* SRRedditParser.m in Sources */,
 				1D505756190D74D000150FFF /* NSFileManager+DirectoryLocations.m in Sources */,
-				1D32376D1912B48A009F2EA3 /* SRVevelt.m in Sources */,
 				1D9520D8190FF8A5002E7B08 /* SRSubredditDataStore.m in Sources */,
 				1D505750190D6CE300150FFF /* SRWallpaperChanger.m in Sources */,
 				1DF2A7CA190D1A5E00DF084F /* SRAppDelegate.m in Sources */,
