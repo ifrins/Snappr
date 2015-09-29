@@ -15,8 +15,7 @@
 
 @implementation SRSetupWindowController
 
-- (id)initWithWindow:(NSWindow *)window
-{
+- (id)initWithWindow:(NSWindow *)window {
     self = [super initWithWindow:window];
     if (self) {
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -25,16 +24,14 @@
     return self;
 }
 
-- (void)windowDidLoad
-{
+- (void)windowDidLoad {
     [super windowDidLoad];
     [_subredditsTableView setDelegate:self];
     [_subredditsTableView setDataSource:[SRSubredditDataStore sharedDatastore]];
     [_subredditsTableView reloadData];
 }
 
-- (IBAction)addSubreddit:(id)sender
-{
+- (IBAction)addSubreddit:(id)sender {
     [NSApp beginSheet: _addModalWindow
        modalForWindow: [self window]
         modalDelegate: nil
@@ -43,15 +40,13 @@
     [NSApp runModalForWindow: _addModalWindow];
 }
 
-- (IBAction)removeSubreddit:(id)sender
-{
+- (IBAction)removeSubreddit:(id)sender {
     NSInteger selectedRow = [_subredditsTableView selectedRow];
     [[SRSubredditDataStore sharedDatastore] removeSubreddit:selectedRow];
     [_subredditsTableView reloadData];
 }
 
-- (IBAction)frequencyChanged:(id)sender
-{
+- (IBAction)frequencyChanged:(id)sender {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs setInteger:(_refreshFrequency * 3600) forKey:@"refreshFrequency"];
     [prefs synchronize];
@@ -59,15 +54,13 @@
     [[SRWallpaperChanger sharedChanger] changeTimerWithNewRepetition:(_refreshFrequency * 3600)];
 }
 
-- (IBAction)modalDismiss:(id)sender
-{
+- (IBAction)modalDismiss:(id)sender {
     [NSApp stopModal];
     [NSApp endSheet:_addModalWindow];
     [_addModalWindow orderOut:self];
 }
 
-- (IBAction)modalAddSubreddit:(id)sender
-{
+- (IBAction)modalAddSubreddit:(id)sender {
     if (![[_subredditComboBox stringValue] isEqual:@""])
     {
         [[SRSubredditDataStore sharedDatastore] addSubreddit:[_subredditComboBox stringValue]];
@@ -78,6 +71,5 @@
     [_addModalWindow orderOut:self];
     [_subredditsTableView reloadData];
 }
-
 
 @end

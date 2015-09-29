@@ -9,11 +9,10 @@
 
 @interface SRImage : NSObject
 
-@property  NSString* title;
-@property  NSString* redditUrl;
-@property  NSString* imageLink;
+@property  NSString *title;
+@property  NSString *redditUrl;
+@property  NSString *imageLink;
 @property  NSRect resolution;
-
 
 - (SRImage*) initWithJSONData:(NSDictionary*) data;
 

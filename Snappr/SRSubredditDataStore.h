@@ -10,13 +10,13 @@
 
 @interface SRSubredditDataStore : NSObject <NSTableViewDataSource>
 
-@property NSMutableArray* subredditArray;
-@property SRImage* currentImage;
+@property NSMutableArray *subredditArray;
+@property SRImage *currentImage;
 
-+ (SRSubredditDataStore*) sharedDatastore;
++ (instancetype) sharedDatastore;
 
-- (void)addSubreddit:(NSString*) subreddit;
-- (void)removeSubreddit:(NSInteger) index;
+- (void)addSubreddit:(NSString *)subreddit;
+- (void)removeSubreddit:(NSInteger)index;
 - (void)save;
 
 @end

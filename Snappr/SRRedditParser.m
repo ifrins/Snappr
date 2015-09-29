@@ -10,8 +10,7 @@
 
 @implementation SRRedditParser
 
-+ (SRRedditParser *) sharedParser
-{
++ (SRRedditParser *) sharedParser {
     static dispatch_once_t pred;
     static SRRedditParser *shared = nil;
     
@@ -22,22 +21,22 @@
     return shared;
 }
 
-- (NSArray*) getImagesFor:(NSString*) subreddit
-{
-    NSMutableArray* imagesArray = [[NSMutableArray alloc] init];
+- (NSArray *)getImagesFor:(NSString *)subreddit {
+    NSMutableArray *imagesArray = [[NSMutableArray alloc] init];
     
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://reddit.com/r/%@/hot.json", subreddit]];
-    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://reddit.com/r/%@/hot.json", subreddit]];
     NSMutableURLRequest *subredditRequest = [NSMutableURLRequest requestWithURL:url
                                                                     cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                                 timeoutInterval:15.0];
     
-    [subredditRequest addValue:@"Snappr/1.0" forHTTPHeaderField:@"User-Agent"];
+    [subredditRequest addValue:@"Snappr/1.1" forHTTPHeaderField:@"User-Agent"];
     
     NSURLResponse *response;
     NSError *error;
     
-    NSData *subredditData = [NSURLConnection sendSynchronousRequest:subredditRequest returningResponse:&response error:&error];
+    NSData *subredditData = [NSURLConnection sendSynchronousRequest:subredditRequest
+                                                  returningResponse:&response
+                                                              error:&error];
     
     
     if (error != nil || subredditData == nil) {
@@ -45,7 +44,9 @@
         return nil;
     }
     
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:subredditData options:NSJSONReadingMutableContainers error:&error];
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:subredditData
+                                                           options:NSJSONReadingMutableContainers
+                                                             error:&error];
     
     subredditData = nil;
     
@@ -56,7 +57,7 @@
     NSArray *childrenPosts = (NSArray*) [(NSDictionary*)[result objectForKey:@"data"] objectForKey:@"children"];
     
     for (int i = 0; i < [childrenPosts count]; i++) {
-        SRImage* image = [[SRImage alloc] initWithJSONData:[childrenPosts objectAtIndex:i]];
+        SRImage *image = [[SRImage alloc] initWithJSONData:[childrenPosts objectAtIndex:i]];
         [imagesArray addObject:image];
     }
     

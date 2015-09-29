@@ -10,9 +10,9 @@
 
 @interface SRAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
 
-@property IBOutlet NSMenu* statusMenu;
-@property NSStatusItem* statusItem;
-@property SRSetupWindowController* settingsWindowController;
+@property (strong) IBOutlet NSMenu *statusMenu;
+@property (strong) NSStatusItem *statusItem;
+@property (strong) SRSetupWindowController *settingsWindowController;
 
 - (IBAction)nextWallpaper:(id)sender;
 - (IBAction)quit:(id)sender;

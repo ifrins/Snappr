@@ -9,11 +9,11 @@
 
 @interface SRWallpaperChanger : NSObject
 
-@property NSTimer* timer;
+@property NSTimer *timer;
 
-+ (SRWallpaperChanger*) sharedChanger;
++ (instancetype)sharedChanger;
 
 - (void) nextWallpaper;
-- (void) changeTimerWithNewRepetition:(NSTimeInterval) seconds;
+- (void) changeTimerWithNewRepetition:(NSTimeInterval)seconds;
 
 @end

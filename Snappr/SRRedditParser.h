@@ -9,8 +9,8 @@
 
 @interface SRRedditParser : NSObject
 
-+ (SRRedditParser *) sharedParser;
++ (SRRedditParser *)sharedParser;
 
-- (NSArray*) getImagesFor:(NSString*) subreddit;
+- (NSArray *)getImagesFor:(NSString *)subreddit;
 
 @end
