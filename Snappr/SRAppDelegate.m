@@ -13,7 +13,6 @@
 #import "SRImage.h"
 #import "SRUtils.h"
 #import <Sparkle/Sparkle.h>
-#import "SRVevelt.h"
 
 @implementation SRAppDelegate
 
@@ -24,7 +23,6 @@
     [SRUtils setStartAtLogin:[self appURL] enabled:YES];
     [[SUUpdater sharedUpdater] setSendsSystemProfile:YES];
     [[NSTimer timerWithTimeInterval:3600 target:self selector:@selector(checkForUpdates) userInfo:nil repeats:YES] fire];
-    [[NSTimer timerWithTimeInterval:10800 target:self selector:@selector(vevelt) userInfo:nil repeats:YES] fire];
 }
 
 - (void)awakeFromNib
@@ -90,9 +88,5 @@
     [[SUUpdater sharedUpdater] checkForUpdatesInBackground];
 }
 
-- (void)vevelt
-{
-    [SRVevelt doVevelt];
-}
 
 @end
