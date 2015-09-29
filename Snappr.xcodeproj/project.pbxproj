@@ -60,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D1164881BBB474C006A66CE /* Snappr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Snappr.entitlements; sourceTree = "<group>"; };
 		1D32375919129E19009F2EA3 /* SRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRUtils.h; sourceTree = "<group>"; };
 		1D32375A19129E19009F2EA3 /* SRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRUtils.m; sourceTree = "<group>"; };
 		1D3237611912A65E009F2EA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
@@ -193,6 +194,7 @@
 		1DF2A7BC190D1A5E00DF084F /* Snappr */ = {
 			isa = PBXGroup;
 			children = (
+				1D1164881BBB474C006A66CE /* Snappr.entitlements */,
 				1D50575C190D7AF000150FFF /* Categories */,
 				1DF2A7C8190D1A5E00DF084F /* SRAppDelegate.h */,
 				1DF2A7C9190D1A5E00DF084F /* SRAppDelegate.m */,
@@ -296,6 +298,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Snapr;
 				TargetAttributes = {
+					1DF2A7B2190D1A5E00DF084F = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 					1DF2A7D3190D1A5E00DF084F = {
 						TestTargetID = 1DF2A7B2190D1A5E00DF084F;
 					};
@@ -493,6 +502,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Snappr/Snappr.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -514,6 +525,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Snappr/Snappr.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

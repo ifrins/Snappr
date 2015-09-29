@@ -21,11 +21,12 @@
     return shared;
 }
 
-
 - (instancetype)init {
     self = [super init];
+    
+    NSString *subredditsPath = [self settingsFilePath];
 
-    NSArray *array = [NSArray arrayWithContentsOfFile:[[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"snappr.subreddits.plist"]];
+    NSArray *array = [NSArray arrayWithContentsOfFile: subredditsPath];
     _subredditArray = [[NSMutableArray alloc] initWithArray:array copyItems:YES];
     
     if ([_subredditArray count] == 0) {
@@ -48,8 +49,8 @@
 }
 
 - (void)save {
-    NSString *filePath =[[[NSFileManager defaultManager] applicationSupportDirectory] stringByAppendingPathComponent:@"snappr.subreddits.plist"];
-    [_subredditArray writeToFile:filePath atomically:YES];
+    NSString *subredditsPath = [self settingsFilePath];
+    [_subredditArray writeToFile:subredditsPath atomically:YES];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -60,6 +61,19 @@
 objectValueForTableColumn:(NSTableColumn *)aTableColumn
             row:(NSInteger)rowIndex {
     return [_subredditArray objectAtIndex:rowIndex];
+}
+
+- (NSString *)settingsFilePath {
+    static NSString *settingsFilePath;
+    
+    if (settingsFilePath == nil) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsPath = [paths objectAtIndex:0];
+        
+        settingsFilePath = [documentsPath stringByAppendingPathComponent:@"snappr.subreddits.plist"];
+    }
+    
+    return settingsFilePath;
 }
 
 @end

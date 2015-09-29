@@ -45,7 +45,7 @@
         NSSize minSize = [self getMinimumSize];
         NSImage* imageToUse = nil;
         int imageToUseIndex = -1;
-        NSString* path = [[NSFileManager defaultManager] applicationSupportDirectory];
+        NSString* path = [self imagesFolderPath];
         
         for (int i = 0; i < [images count]; i++) {
             SRImage* refImage = [images objectAtIndex:i];
@@ -128,7 +128,7 @@
 }
 
 - (BOOL)hasImageBeenShown:(SRImage*) image {
-    NSString *basePath = [[NSFileManager defaultManager] applicationSupportDirectory];
+    NSString *basePath = [self imagesFolderPath];
     NSString *path = [basePath stringByAppendingPathComponent:[[image imageLink] MD5String]];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
@@ -196,7 +196,7 @@
 }
 
 - (void)cleanOldFiles {
-    NSString *dirPath = [[NSFileManager defaultManager] applicationSupportDirectory];
+    NSString *dirPath = [self imagesFolderPath];
     NSURL *pathURL = [[NSURL alloc] initFileURLWithPath:dirPath isDirectory:YES];
     
     NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:pathURL includingPropertiesForKeys:@[NSURLContentModificationDateKey] options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
@@ -215,5 +215,20 @@
         
     }
 }
+
+- (NSString *)imagesFolderPath {
+    static NSString *folderPath;
+#warning Create specific folder for images
+    if (folderPath == nil) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsPath = [paths objectAtIndex:0];
+        folderPath = documentsPath;
+    }
+    
+    NSLog(@"Images folder path: %@", folderPath);
+    
+    return folderPath;
+}
+
 
 @end
