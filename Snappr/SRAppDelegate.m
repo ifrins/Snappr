@@ -58,8 +58,8 @@
         _settingsWindowController = [[SRSetupWindowController alloc] initWithWindowNibName:@"SRSetupWindowController"];
     }
     
-    [_settingsWindowController showWindow:self];
-    [[_settingsWindowController window] makeKeyAndOrderFront:self];
+    [_settingsWindowController showWindow:_settingsWindowController.window];
+    [[_settingsWindowController window] makeKeyAndOrderFront:_settingsWindowController.window];
 }
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center
