@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -10,7 +11,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="SRAppDelegate">
             <connections>
                 <outlet property="statusMenu" destination="Cy0-Tc-iWJ" id="NFa-aM-UA2"/>
@@ -44,6 +45,7 @@
                         <action selector="openAbout:" target="Voe-Tx-rLC" id="wTh-ET-zPR"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="0Hg-aX-QO7"/>
                 <menuItem title="Quit Snapr" id="chA-4a-0bH">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
