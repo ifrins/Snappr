@@ -59,7 +59,7 @@ class RedditImage: NSObject {
         
         if host == "imgur.com" {
             let relativePath = url.relativePath
-            return NSURL(string: "http://i.imgur.com\(relativePath).jpg")
+            return NSURL(string: "https://i.imgur.com\(relativePath).jpg")
         } else {
             return url
         }
