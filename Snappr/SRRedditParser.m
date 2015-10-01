@@ -6,7 +6,7 @@
 //
 
 #import "SRRedditParser.h"
-#import "SRImage.h"
+#import "Snappr-Swift.h"
 
 @implementation SRRedditParser
 
@@ -57,7 +57,7 @@
     NSArray *childrenPosts = (NSArray*) [(NSDictionary*)[result objectForKey:@"data"] objectForKey:@"children"];
     
     for (int i = 0; i < [childrenPosts count]; i++) {
-        SRImage *image = [[SRImage alloc] initWithJSONData:[childrenPosts objectAtIndex:i]];
+        RedditImage *image = [[RedditImage alloc] initWithJSONData:[childrenPosts objectAtIndex:i]];
         [imagesArray addObject:image];
     }
     

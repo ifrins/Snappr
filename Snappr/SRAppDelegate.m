@@ -10,7 +10,7 @@
 #import "SRSubredditDataStore.h"
 #import "SRWallpaperChanger.h"
 #import "SRSetupWindowController.h"
-#import "SRImage.h"
+#import "Snappr-Swift.h"
 #import "SRUtils.h"
 #import <Sparkle/Sparkle.h>
 
@@ -18,7 +18,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
-    [SRWallpaperChanger sharedChanger];
     [SRUtils setStartAtLogin:[self appURL] enabled:YES];
     [[SUUpdater sharedUpdater] setSendsSystemProfile:YES];
     [[NSTimer timerWithTimeInterval:3600
@@ -48,9 +47,9 @@
 }
 
 - (IBAction)viewCurrentWallpaper:(id)sender {
-    SRImage* image = [[SRSubredditDataStore sharedDatastore] currentImage];
+    RedditImage *image = [[SRSubredditDataStore sharedDatastore] currentImage];
     
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:image.redditUrl]];
+    [[NSWorkspace sharedWorkspace] openURL:image.redditURL];
 }
 
 - (IBAction)openSettings:(id)sender {

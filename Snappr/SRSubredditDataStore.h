@@ -6,12 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SRImage.h"
+#import "Snappr-Swift.h"
 
 @interface SRSubredditDataStore : NSObject <NSTableViewDataSource>
 
 @property NSMutableArray *subredditArray;
-@property SRImage *currentImage;
+@property RedditImage *currentImage;
 
 + (instancetype) sharedDatastore;
 

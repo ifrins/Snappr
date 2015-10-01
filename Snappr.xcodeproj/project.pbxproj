@@ -13,6 +13,8 @@
 		1D3237661912AEBA009F2EA3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3237651912AEBA009F2EA3 /* WebKit.framework */; };
 		1D3237681912B14B009F2EA3 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D3237631912AE03009F2EA3 /* Sparkle.framework */; };
 		1D32376A1912B3BA009F2EA3 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1D3237691912B3BA009F2EA3 /* dsa_pub.pem */; };
+		1D433E1B1BBC87C700629815 /* RedditImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D433E1A1BBC87C700629815 /* RedditImage.swift */; settings = {ASSET_TAGS = (); }; };
+		1D433E1D1BBC99B700629815 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D433E1C1BBC99B700629815 /* SwiftRegex.swift */; settings = {ASSET_TAGS = (); }; };
 		1D505750190D6CE300150FFF /* SRWallpaperChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D50574F190D6CE300150FFF /* SRWallpaperChanger.m */; };
 		1D505753190D707500150FFF /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505752190D707500150FFF /* NSMutableArray_Shuffling.m */; };
 		1D505756190D74D000150FFF /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505755190D74D000150FFF /* NSFileManager+DirectoryLocations.m */; };
@@ -33,7 +35,6 @@
 		1DF2A7DF190D1A5E00DF084F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DF2A7DD190D1A5E00DF084F /* InfoPlist.strings */; };
 		1DF2A7E1190D1A5E00DF084F /* SnapprTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2A7E0190D1A5E00DF084F /* SnapprTests.m */; };
 		1DF2A7EC190D1E9E00DF084F /* SRRedditParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2A7EB190D1E9E00DF084F /* SRRedditParser.m */; };
-		1DF2A7EF190D1FEE00DF084F /* SRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2A7EE190D1FEE00DF084F /* SRImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,9 @@
 		1D3237631912AE03009F2EA3 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		1D3237651912AEBA009F2EA3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1D3237691912B3BA009F2EA3 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		1D433E191BBC87C700629815 /* Snappr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Snappr-Bridging-Header.h"; sourceTree = "<group>"; };
+		1D433E1A1BBC87C700629815 /* RedditImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditImage.swift; sourceTree = "<group>"; };
+		1D433E1C1BBC99B700629815 /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
 		1D50574E190D6CE300150FFF /* SRWallpaperChanger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWallpaperChanger.h; sourceTree = "<group>"; };
 		1D50574F190D6CE300150FFF /* SRWallpaperChanger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWallpaperChanger.m; sourceTree = "<group>"; };
 		1D505751190D704700150FFF /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
@@ -105,8 +109,6 @@
 		1DF2A7E0190D1A5E00DF084F /* SnapprTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnapprTests.m; sourceTree = "<group>"; };
 		1DF2A7EA190D1E9E00DF084F /* SRRedditParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRedditParser.h; sourceTree = "<group>"; };
 		1DF2A7EB190D1E9E00DF084F /* SRRedditParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRedditParser.m; sourceTree = "<group>"; };
-		1DF2A7ED190D1FEE00DF084F /* SRImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRImage.h; sourceTree = "<group>"; };
-		1DF2A7EE190D1FEE00DF084F /* SRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D433E181BBC87A500629815 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1D433E1A1BBC87C700629815 /* RedditImage.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		1D50575C190D7AF000150FFF /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 		1DF2A7BC190D1A5E00DF084F /* Snappr */ = {
 			isa = PBXGroup;
 			children = (
+				1D433E181BBC87A500629815 /* Models */,
 				1D1164881BBB474C006A66CE /* Snappr.entitlements */,
 				1D50575C190D7AF000150FFF /* Categories */,
 				1DF2A7C8190D1A5E00DF084F /* SRAppDelegate.h */,
@@ -203,8 +214,6 @@
 				1DF2A7BD190D1A5E00DF084F /* Supporting Files */,
 				1DF2A7EA190D1E9E00DF084F /* SRRedditParser.h */,
 				1DF2A7EB190D1E9E00DF084F /* SRRedditParser.m */,
-				1DF2A7ED190D1FEE00DF084F /* SRImage.h */,
-				1DF2A7EE190D1FEE00DF084F /* SRImage.m */,
 				1D50574E190D6CE300150FFF /* SRWallpaperChanger.h */,
 				1D50574F190D6CE300150FFF /* SRWallpaperChanger.m */,
 				1DE6E65E190FEAB400BFCCF1 /* SRSetupWindowController.h */,
@@ -214,6 +223,8 @@
 				1D9520D7190FF8A5002E7B08 /* SRSubredditDataStore.m */,
 				1D32375919129E19009F2EA3 /* SRUtils.h */,
 				1D32375A19129E19009F2EA3 /* SRUtils.m */,
+				1D433E191BBC87C700629815 /* Snappr-Bridging-Header.h */,
+				1D433E1C1BBC99B700629815 /* SwiftRegex.swift */,
 			);
 			path = Snappr;
 			sourceTree = "<group>";
@@ -295,6 +306,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SR;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Snapr;
 				TargetAttributes = {
@@ -358,15 +370,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DF2A7EF190D1FEE00DF084F /* SRImage.m in Sources */,
 				1D5408FD1913EDE2005EFAC1 /* NoodleGlue.m in Sources */,
 				1DF2A7C3190D1A5E00DF084F /* main.m in Sources */,
 				1D50575B190D758A00150FFF /* NSString+MD5.m in Sources */,
+				1D433E1D1BBC99B700629815 /* SwiftRegex.swift in Sources */,
 				1D32375B19129E19009F2EA3 /* SRUtils.m in Sources */,
 				1DE6E661190FEAB400BFCCF1 /* SRSetupWindowController.m in Sources */,
 				1D505753190D707500150FFF /* NSMutableArray_Shuffling.m in Sources */,
 				1D5408FA1913ED98005EFAC1 /* NSTimer+NoodleExtensions.m in Sources */,
 				1DF2A7EC190D1E9E00DF084F /* SRRedditParser.m in Sources */,
+				1D433E1B1BBC87C700629815 /* RedditImage.swift in Sources */,
 				1D505756190D74D000150FFF /* NSFileManager+DirectoryLocations.m in Sources */,
 				1D9520D8190FF8A5002E7B08 /* SRSubredditDataStore.m in Sources */,
 				1D505750190D6CE300150FFF /* SRWallpaperChanger.m in Sources */,
@@ -502,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Snappr/Snappr.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -512,11 +526,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snappr/Snappr-Prefix.pch";
 				INFOPLIST_FILE = "Snappr/Snappr-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Snappr/Snappr-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -525,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Snappr/Snappr.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -535,11 +553,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snappr/Snappr-Prefix.pch";
 				INFOPLIST_FILE = "Snappr/Snappr-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Snappr/Snappr-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -6,7 +6,7 @@
 //
 
 #import "SRWallpaperChanger.h"
-#import "SRImage.h"
+#import "Snappr-Swift.h"
 #import "SRRedditParser.h"
 #import "NSMutableArray_Shuffling.h"
 #import "NSFileManager+DirectoryLocations.h"
@@ -48,9 +48,11 @@
         NSString* path = [self imagesFolderPath];
         
         for (int i = 0; i < [images count]; i++) {
-            SRImage* refImage = [images objectAtIndex:i];
+            RedditImage *refImage = [images objectAtIndex:i];
         
-            NSImage* proveImage = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:refImage.imageLink]];
+            NSImage *proveImage = [refImage getImage];
+            
+            if (proveImage == nil) continue;
         
         
             if ([self hasImageBeenShown:refImage]) {
@@ -60,7 +62,7 @@
             NSSize imageSize = [proveImage size];
             
             if (imageSize.height == 0) {
-                NSLog(@"URL not pointing to the file: %@", refImage.imageLink);
+                NSLog(@"URL not pointing to the file: %@", refImage.imageURL);
             }
 
             if ([self imageWithSize:imageSize willSupportScreenWithSize:minSize]) {
@@ -75,12 +77,14 @@
             return;
         }
     
-        SRImage* imageToUseRef = [images objectAtIndex:imageToUseIndex];
+        RedditImage *imageToUseRef = [images objectAtIndex:imageToUseIndex];
         
         NSBitmapImageRep *imgRep = [[imageToUse representations] objectAtIndex: 0];
         NSData* imageData = [imgRep representationUsingType:NSJPEGFileType properties:nil];
         
-        NSURL* fileURL = [[NSURL alloc] initFileURLWithPath:[path stringByAppendingPathComponent:[[imageToUseRef imageLink] MD5String]]];
+        NSString *imageLinkMD5 = [[NSString stringWithFormat:@"%@", imageToUseRef.imageURL] MD5String];
+        
+        NSURL* fileURL = [[NSURL alloc] initFileURLWithPath:[path stringByAppendingPathComponent: imageLinkMD5]];
 
         [imageData writeToURL:fileURL atomically:YES];
         
@@ -96,7 +100,7 @@
                 if (error == nil)
                 {
                     [[SRSubredditDataStore sharedDatastore] setCurrentImage:imageToUseRef];
-                    [self sendNotificationWithTitle:[imageToUseRef title] andLink:[imageToUseRef redditUrl]];
+                    [self sendNotificationWithTitle:[imageToUseRef title] andLink:imageToUseRef.redditURL];
                 }
             });
         }
@@ -127,9 +131,10 @@
     return allImages;
 }
 
-- (BOOL)hasImageBeenShown:(SRImage*) image {
+- (BOOL)hasImageBeenShown:(RedditImage *)image {
     NSString *basePath = [self imagesFolderPath];
-    NSString *path = [basePath stringByAppendingPathComponent:[[image imageLink] MD5String]];
+    NSString *imageURLMD5 = [[NSString stringWithFormat:@"%@", image.imageURL] MD5String];
+    NSString *path = [basePath stringByAppendingPathComponent:imageURLMD5];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         return YES;
@@ -169,12 +174,15 @@
     return NO;
 }
 
-- (void)sendNotificationWithTitle:(NSString *)title andLink:(NSString *)linkUrl {
+- (void)sendNotificationWithTitle:(NSString *)title andLink:(NSURL *)linkUrl {
+    NSString *imageLinkString = [NSString stringWithFormat:@"%@", linkUrl];
+    
     NSUserNotification *notification = [[NSUserNotification alloc] init];
     notification.title = title;
-    notification.informativeText = @"New wallpaper";
+    notification.informativeText = NSLocalizedString(@"New Wallpaper", "New wallpaper notification title") ;
     notification.soundName = NSUserNotificationDefaultSoundName;
-    notification.userInfo = [NSDictionary dictionaryWithObject:linkUrl forKey:@"link"];
+    notification.userInfo = [NSDictionary dictionaryWithObject:imageLinkString
+                                                        forKey:@"link"];
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 }
