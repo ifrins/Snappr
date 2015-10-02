@@ -31,7 +31,9 @@
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [_statusItem setMenu:_statusMenu];
     [_statusItem setHighlightMode:YES];
-    [_statusItem setImage:[NSImage imageNamed:@"MenuBar"]];
+    NSImage *menubarIcon = [NSImage imageNamed:@"MenuBar"];
+    [menubarIcon setTemplate:YES];
+    [_statusItem setImage:menubarIcon];
 }
 
 - (IBAction)nextWallpaper:(id)sender {
