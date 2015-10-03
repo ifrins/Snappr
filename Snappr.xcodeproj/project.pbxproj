@@ -22,6 +22,8 @@
 		1D5408FA1913ED98005EFAC1 /* NSTimer+NoodleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5408F91913ED98005EFAC1 /* NSTimer+NoodleExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D5408FD1913EDE2005EFAC1 /* NoodleGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5408FC1913EDE2005EFAC1 /* NoodleGlue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D9520D8190FF8A5002E7B08 /* SRSubredditDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9520D7190FF8A5002E7B08 /* SRSubredditDataStore.m */; };
+		1DB77B6A1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB77B681BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		1DB77B6B1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB77B691BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		1DE6E661190FEAB400BFCCF1 /* SRSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6E65F190FEAB400BFCCF1 /* SRSetupWindowController.m */; };
 		1DE6E662190FEAB400BFCCF1 /* SRSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE6E660190FEAB400BFCCF1 /* SRSetupWindowController.xib */; };
 		1DF2A7B7190D1A5E00DF084F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF2A7B6190D1A5E00DF084F /* Cocoa.framework */; };
@@ -86,6 +88,8 @@
 		1D5408FC1913EDE2005EFAC1 /* NoodleGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleGlue.m; sourceTree = "<group>"; };
 		1D9520D6190FF8A5002E7B08 /* SRSubredditDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRSubredditDataStore.h; sourceTree = "<group>"; };
 		1D9520D7190FF8A5002E7B08 /* SRSubredditDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRSubredditDataStore.m; sourceTree = "<group>"; };
+		1DB77B681BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SRGeneralSettingsViewController.swift; path = "View Controllers/SRGeneralSettingsViewController.swift"; sourceTree = "<group>"; };
+		1DB77B691BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SRGeneralSettingsViewController.xib; path = "View Controllers/SRGeneralSettingsViewController.xib"; sourceTree = "<group>"; };
 		1DE6E65E190FEAB400BFCCF1 /* SRSetupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRSetupWindowController.h; sourceTree = "<group>"; };
 		1DE6E65F190FEAB400BFCCF1 /* SRSetupWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRSetupWindowController.m; sourceTree = "<group>"; };
 		1DE6E660190FEAB400BFCCF1 /* SRSetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRSetupWindowController.xib; sourceTree = "<group>"; };
@@ -159,6 +163,15 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		1DB77B6C1BBDC0CF00ACFF75 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DB77B681BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift */,
+				1DB77B691BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		1DF2A7AA190D1A5D00DF084F = {
 			isa = PBXGroup;
 			children = (
@@ -205,7 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				1D433E181BBC87A500629815 /* Models */,
-				1D1164881BBB474C006A66CE /* Snappr.entitlements */,
+				1DB77B6C1BBDC0CF00ACFF75 /* View Controllers */,
 				1D50575C190D7AF000150FFF /* Categories */,
 				1DF2A7C8190D1A5E00DF084F /* SRAppDelegate.h */,
 				1DF2A7C9190D1A5E00DF084F /* SRAppDelegate.m */,
@@ -225,6 +238,7 @@
 				1D32375A19129E19009F2EA3 /* SRUtils.m */,
 				1D433E191BBC87C700629815 /* Snappr-Bridging-Header.h */,
 				1D433E1C1BBC99B700629815 /* SwiftRegex.swift */,
+				1D1164881BBB474C006A66CE /* Snappr.entitlements */,
 			);
 			path = Snappr;
 			sourceTree = "<group>";
@@ -350,6 +364,7 @@
 				1D32376A1912B3BA009F2EA3 /* dsa_pub.pem in Resources */,
 				1D3237621912A65E009F2EA3 /* Credits.rtf in Resources */,
 				1DE6E662190FEAB400BFCCF1 /* SRSetupWindowController.xib in Resources */,
+				1DB77B6B1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib in Resources */,
 				1DF2A7CF190D1A5E00DF084F /* Images.xcassets in Resources */,
 				1DF2A7CD190D1A5E00DF084F /* MainMenu.xib in Resources */,
 			);
@@ -382,6 +397,7 @@
 				1D433E1B1BBC87C700629815 /* RedditImage.swift in Sources */,
 				1D505756190D74D000150FFF /* NSFileManager+DirectoryLocations.m in Sources */,
 				1D9520D8190FF8A5002E7B08 /* SRSubredditDataStore.m in Sources */,
+				1DB77B6A1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift in Sources */,
 				1D505750190D6CE300150FFF /* SRWallpaperChanger.m in Sources */,
 				1DF2A7CA190D1A5E00DF084F /* SRAppDelegate.m in Sources */,
 			);

@@ -47,6 +47,10 @@
         int imageToUseIndex = -1;
         NSString* path = [self imagesFolderPath];
         
+        for (RedditImage *image in images) {
+            NSLog(@"%@", image.title);
+        }
+        
         for (int i = 0; i < [images count]; i++) {
             RedditImage *refImage = [images objectAtIndex:i];
         
@@ -95,7 +99,7 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSError* error;
-                [[NSWorkspace sharedWorkspace] setDesktopImageURL:fileURL forScreen:screen options:nil error:&error];
+                //[[NSWorkspace sharedWorkspace] setDesktopImageURL:fileURL forScreen:screen options:nil error:&error];
                 
                 if (error == nil)
                 {
