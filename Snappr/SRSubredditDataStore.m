@@ -24,7 +24,7 @@
 - (instancetype)init {
     self = [super init];
     
-    NSString *subredditsPath = [self settingsFilePath];
+    NSString *subredditsPath = [SRSettings settingsPath];
 
     NSArray *array = [NSArray arrayWithContentsOfFile: subredditsPath];
     _subredditArray = [[NSMutableArray alloc] initWithArray:array copyItems:YES];
@@ -34,6 +34,8 @@
         [_subredditArray addObject:@"skyporn"];
         [_subredditArray addObject:@"cityporn"];
     }
+    
+    _lastImageDownloadDate = [NSDate distantPast];
     
     return self;
 }
@@ -49,7 +51,7 @@
 }
 
 - (void)save {
-    NSString *subredditsPath = [self settingsFilePath];
+    NSString *subredditsPath = [SRSettings settingsPath];
     [_subredditArray writeToFile:subredditsPath atomically:YES];
 }
 
@@ -61,19 +63,6 @@
 objectValueForTableColumn:(NSTableColumn *)aTableColumn
             row:(NSInteger)rowIndex {
     return [_subredditArray objectAtIndex:rowIndex];
-}
-
-- (NSString *)settingsFilePath {
-    static NSString *settingsFilePath;
-    
-    if (settingsFilePath == nil) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsPath = [paths objectAtIndex:0];
-        
-        settingsFilePath = [documentsPath stringByAppendingPathComponent:@"snappr.subreddits.plist"];
-    }
-    
-    return settingsFilePath;
 }
 
 @end

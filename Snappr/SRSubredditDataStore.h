@@ -10,8 +10,9 @@
 
 @interface SRSubredditDataStore : NSObject <NSTableViewDataSource>
 
-@property NSMutableArray *subredditArray;
+@property NSMutableArray<NSString *> *subredditArray;
 @property RedditImage *currentImage;
+@property NSDate *lastImageDownloadDate;
 
 + (instancetype) sharedDatastore;
 

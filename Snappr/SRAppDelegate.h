@@ -6,9 +6,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Sparkle/Sparkle.h>
 #import "SRSetupWindowController.h"
 
-@interface SRAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
+@interface SRAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate, SUUpdaterDelegate>
 
 @property (strong) IBOutlet NSMenu *statusMenu;
 @property (strong) NSStatusItem *statusItem;

@@ -21,6 +21,7 @@
 		1D50575B190D758A00150FFF /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D50575A190D758A00150FFF /* NSString+MD5.m */; };
 		1D5408FA1913ED98005EFAC1 /* NSTimer+NoodleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5408F91913ED98005EFAC1 /* NSTimer+NoodleExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D5408FD1913EDE2005EFAC1 /* NoodleGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5408FC1913EDE2005EFAC1 /* NoodleGlue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1D9502D21BC17992002E2ED0 /* SRSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9502D11BC17992002E2ED0 /* SRSettings.swift */; settings = {ASSET_TAGS = (); }; };
 		1D9520D8190FF8A5002E7B08 /* SRSubredditDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9520D7190FF8A5002E7B08 /* SRSubredditDataStore.m */; };
 		1DB77B6A1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB77B681BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		1DB77B6B1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB77B691BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -86,6 +87,7 @@
 		1D5408F91913ED98005EFAC1 /* NSTimer+NoodleExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+NoodleExtensions.m"; sourceTree = "<group>"; };
 		1D5408FB1913EDE2005EFAC1 /* NoodleGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleGlue.h; sourceTree = "<group>"; };
 		1D5408FC1913EDE2005EFAC1 /* NoodleGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleGlue.m; sourceTree = "<group>"; };
+		1D9502D11BC17992002E2ED0 /* SRSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRSettings.swift; sourceTree = "<group>"; };
 		1D9520D6190FF8A5002E7B08 /* SRSubredditDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRSubredditDataStore.h; sourceTree = "<group>"; };
 		1D9520D7190FF8A5002E7B08 /* SRSubredditDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRSubredditDataStore.m; sourceTree = "<group>"; };
 		1DB77B681BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SRGeneralSettingsViewController.swift; path = "View Controllers/SRGeneralSettingsViewController.swift"; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				1D433E191BBC87C700629815 /* Snappr-Bridging-Header.h */,
 				1D433E1C1BBC99B700629815 /* SwiftRegex.swift */,
 				1D1164881BBB474C006A66CE /* Snappr.entitlements */,
+				1D9502D11BC17992002E2ED0 /* SRSettings.swift */,
 			);
 			path = Snappr;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D5408FD1913EDE2005EFAC1 /* NoodleGlue.m in Sources */,
+				1D9502D21BC17992002E2ED0 /* SRSettings.swift in Sources */,
 				1DF2A7C3190D1A5E00DF084F /* main.m in Sources */,
 				1D50575B190D758A00150FFF /* NSString+MD5.m in Sources */,
 				1D433E1D1BBC99B700629815 /* SwiftRegex.swift in Sources */,
@@ -533,7 +537,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Snappr/Snappr.entitlements;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -560,7 +563,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Snappr/Snappr.entitlements;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

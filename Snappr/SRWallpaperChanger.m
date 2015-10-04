@@ -15,6 +15,13 @@
 
 #import "NSTimer+NoodleExtensions.h"
 
+@interface SRWallpaperChanger ()
+
+@property NSTimer   *timer;
+@property NSDate    *plannedFireDate;
+
+@end
+
 @implementation SRWallpaperChanger
 
 + (instancetype)sharedChanger {
@@ -30,131 +37,231 @@
 
 - (instancetype)init {
     self = [super init];
-    [self nextWallpaper];
+    NSNotificationCenter *notifcenter = [[NSWorkspace sharedWorkspace] notificationCenter];
+    
+    [notifcenter addObserver:self
+                    selector:@selector(willSleep)
+                        name:NSWorkspaceWillSleepNotification
+                      object:nil];
+    
+    [notifcenter addObserver:self
+                    selector:@selector(willWake)
+                        name:NSWorkspaceDidWakeNotification
+                      object:nil];
+    
+    [notifcenter addObserver:self
+                    selector:@selector(checkIfSpaceNeedsWallpaper)
+                        name:NSWorkspaceActiveSpaceDidChangeNotification
+                      object:nil];
+    
+    [self scheduleInitialChange];
+    
     return self;    
+}
+
+- (void)scheduleInitialChange {
+    NSDate *lastUpdate = [SRSettings lastUpdated];
+    NSTimeInterval lastUpdateDelta = fabs(lastUpdate.timeIntervalSinceNow);
+    NSTimeInterval updateInterval = [self getChangeInterval];
+    
+    if (lastUpdateDelta > updateInterval) {
+        [self nextWallpaper];
+    } else {
+        NSTimeInterval newInterval = updateInterval - lastUpdateDelta;
+        
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:newInterval
+                                                      target:self
+                                                    selector:@selector(nextWallpaperFromTimer)
+                                                    userInfo:nil
+                                                     repeats:NO];
+    }
+}
+
+- (void)willSleep {
+    NSLog(@"Will sleep");
+    if ([self.timer isValid]) {
+        self.plannedFireDate = self.timer.fireDate;
+        [self.timer invalidate];
+    }
+}
+
+- (void)willWake {
+    NSLog(@"Will sleep");
+    NSTimeInterval timeInterval = [self.plannedFireDate timeIntervalSinceNow];
+    
+    if (timeInterval <= 0) {
+        [self nextWallpaperFromTimer];
+    } else {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                                      target:self
+                                                    selector:@selector(nextWallpaperFromTimer)
+                                                    userInfo:nil
+                                                     repeats:NO];
+    }
+    
+    self.plannedFireDate = nil;
+}
+
+- (void)checkIfSpaceNeedsWallpaper {
+    NSArray<NSScreen *> *screens = [NSScreen screens];
+    RedditImage *image = [[SRSubredditDataStore sharedDatastore] currentImage];
+    
+    NSString *basePath = [SRSettings imagesPath];
+    NSString *imageURLMD5 = [image.imageURL.description MD5String];
+    NSString *path = [basePath stringByAppendingPathComponent:imageURLMD5];
+
+    NSURL *fileUrl = [[NSURL alloc] initFileURLWithPath:path];
+    
+    for (NSScreen *screen in screens) {
+        NSURL *screenImageURL;
+        screenImageURL = [[NSWorkspace sharedWorkspace] desktopImageURLForScreen:screen];
+        
+        if (![screenImageURL isEqualTo:fileUrl]) {
+            NSError *error;
+            [[NSWorkspace sharedWorkspace] setDesktopImageURL:fileUrl forScreen:screen options:nil error:&error];
+        }
+    }
+}
+
+- (void)nextWallpaperFromTimer {
+    NSDate *lastUpdateDate;
+    lastUpdateDate = [SRSubredditDataStore sharedDatastore].lastImageDownloadDate;
+    
+    NSLog(@"New Wallpaper from timer!");
+    
+    [self nextWallpaper];
 }
 
 - (void)nextWallpaper {
     NSLog(@"Next wallpaper...");
-    [self scheduleNewChange];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSInteger attempts = 0;
         
         [self cleanOldFiles];
         
-        NSArray* images = [self getAllImages];
-        NSSize minSize = [self getMinimumSize];
-        NSImage* imageToUse = nil;
-        int imageToUseIndex = -1;
-        NSString* path = [self imagesFolderPath];
+        while (attempts < 5) {
+            NSArray<RedditImage *> *images = [self getAllImages];
+            NSSize minSize = [self getMinimumSize];
         
-        for (RedditImage *image in images) {
-            NSLog(@"%@", image.title);
-        }
+            NSImage *imageDataToUse;
+            RedditImage *imageToUse;
         
-        for (int i = 0; i < [images count]; i++) {
-            RedditImage *refImage = [images objectAtIndex:i];
+            NSString *path = [SRSettings imagesPath];
         
-            NSImage *proveImage = [refImage getImage];
+            for (RedditImage *refImage in images) {
+                // Image has already been used as a wallpaper
+                if ([self hasImageBeenShown:refImage]) continue;
+
+                NSImage *proveImage = [refImage getImage];
+
+                // We couldn't download the image
+                if (proveImage == nil) continue;
             
-            if (proveImage == nil) continue;
+            
+                NSSize imageSize = [proveImage size];
+            
+                if ([self imageWithSize:imageSize willSupportScreenWithSize:minSize]) {
+                    imageDataToUse = proveImage;
+                    imageToUse = refImage;
+                    break;
+                }
+            }
         
-        
-            if ([self hasImageBeenShown:refImage]) {
+            if (imageToUse == nil) {
+                attempts++;
+                NSLog(@"Failed download… Retrying… %ld", attempts);
+                
+                sleep(pow(3, attempts) + 5);
                 continue;
             }
         
-            NSSize imageSize = [proveImage size];
-            
-            if (imageSize.height == 0) {
-                NSLog(@"URL not pointing to the file: %@", refImage.imageURL);
-            }
+            NSBitmapImageRep *imgRep = [[imageDataToUse representations] objectAtIndex: 0];
+            NSData *imageData = [imgRep representationUsingType:NSJPEGFileType properties:nil];
+        
+            NSString *imageLinkMD5 = [imageToUse.imageURL.description MD5String];
+        
+            NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:[path stringByAppendingPathComponent: imageLinkMD5]];
 
-            if ([self imageWithSize:imageSize willSupportScreenWithSize:minSize]) {
-                imageToUse = proveImage;
-                imageToUseIndex = i;
-                break;
+            [imageData writeToURL:fileURL atomically:YES];
+        
+            NSArray *screens = [NSScreen screens];
+        
+            NSLog(@"SR – Setting wallpaper to %@", fileURL);
+        
+            for (NSScreen *screen in screens) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSError* error;
+                    [[NSWorkspace sharedWorkspace] setDesktopImageURL:fileURL forScreen:screen options:nil error:&error];
+                    
+                    if (error == nil) {
+                        [[SRSubredditDataStore sharedDatastore] setCurrentImage:imageToUse];
+                        [SRSettings setLastUpdated:[NSDate date]];
+                        [self sendNotificationForImage:imageToUse];
+                    }
+                });
             }
+            break;
         }
-    
-        if (imageToUseIndex == -1)
-        {
-            return;
-        }
-    
-        RedditImage *imageToUseRef = [images objectAtIndex:imageToUseIndex];
         
-        NSBitmapImageRep *imgRep = [[imageToUse representations] objectAtIndex: 0];
-        NSData* imageData = [imgRep representationUsingType:NSJPEGFileType properties:nil];
-        
-        NSString *imageLinkMD5 = [[NSString stringWithFormat:@"%@", imageToUseRef.imageURL] MD5String];
-        
-        NSURL* fileURL = [[NSURL alloc] initFileURLWithPath:[path stringByAppendingPathComponent: imageLinkMD5]];
-
-        [imageData writeToURL:fileURL atomically:YES];
-        
-        NSArray* screens = [NSScreen screens];
-    
-        for (int i = 0; i < [screens count]; i++) {
-            NSScreen* screen = [screens objectAtIndex:i];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSError* error;
-                //[[NSWorkspace sharedWorkspace] setDesktopImageURL:fileURL forScreen:screen options:nil error:&error];
-                
-                if (error == nil)
-                {
-                    [[SRSubredditDataStore sharedDatastore] setCurrentImage:imageToUseRef];
-                    [self sendNotificationWithTitle:[imageToUseRef title] andLink:imageToUseRef.redditURL];
-                }
-            });
-        }
+        [self scheduleNewChange];
     });
-    
-    
 }
 
 - (void)changeTimerWithNewRepetition:(NSTimeInterval)seconds {
     NSLog(@"Set new interval of %f seconds", seconds);
     
-    [_timer invalidate];
-    _timer = [NSTimer scheduledTimerWithTimeInterval:seconds target:self selector:@selector(nextWallpaper) userInfo:nil repeats:YES];
-    
-    [_timer fire];
+    if ([self.timer isValid]) {
+        NSTimeInterval remaining = self.timer.fireDate.timeIntervalSinceNow;
+        NSTimeInterval newInterval = seconds - remaining;
+        
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:newInterval
+                                                      target:self
+                                                    selector:@selector(nextWallpaperFromTimer)
+                                                    userInfo:nil
+                                                     repeats:NO];
+    } else {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:seconds
+                                                      target:self
+                                                    selector:@selector(nextWallpaperFromTimer)
+                                                    userInfo:nil
+                                                     repeats:NO];
+    }
 }
 
-- (NSArray*)getAllImages {
-    NSMutableArray* allImages = [[NSMutableArray alloc] init];
-    NSArray* subreddits = [[SRSubredditDataStore sharedDatastore] subredditArray];
+- (NSArray *)getAllImages {
+    NSMutableArray<RedditImage *> *allImages = [[NSMutableArray alloc] init];
+    NSArray *subreddits = [[[SRSubredditDataStore sharedDatastore] subredditArray] copy];
     
-    for (int i = 0; i < [subreddits count]; i++) {
-        [allImages addObjectsFromArray:[[SRRedditParser sharedParser] getImagesFor:[subreddits objectAtIndex:i]]];
+    for (NSString *subreddit in subreddits) {
+        NSArray<RedditImage *> *subredditImages;
+        subredditImages = [[SRRedditParser sharedParser] getImagesFor:subreddit];
+        [allImages addObjectsFromArray:subredditImages];
     }
     
     [allImages shuffle];
     
-    return allImages;
+    return [allImages copy];
 }
 
 - (BOOL)hasImageBeenShown:(RedditImage *)image {
-    NSString *basePath = [self imagesFolderPath];
-    NSString *imageURLMD5 = [[NSString stringWithFormat:@"%@", image.imageURL] MD5String];
+    NSString *basePath = [SRSettings imagesPath];
+    NSString *imageURLMD5 = [image.imageURL.description MD5String];
     NSString *path = [basePath stringByAppendingPathComponent:imageURLMD5];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         return YES;
     }
-    return NO;
     
+    return NO;
 }
 
 - (NSSize)getMinimumSize {
     CGFloat maxWidth = 0;
     CGFloat maxHeight = 0;
     
-    NSArray* screens = [NSScreen screens];
+    NSArray *screens = [NSScreen screens];
     
-    for (int i = 0; i < [screens count]; i++) {
-        NSScreen* screen = [screens objectAtIndex:i];
+    for (NSScreen *screen in screens) {
         NSRect screenRect = [screen convertRectFromBacking:[screen frame]];
         NSSize screenSize = screenRect.size;
         
@@ -166,7 +273,7 @@
             maxWidth = screenSize.width;
         }
     }
-        
+    
     return NSMakeSize(maxWidth, maxHeight);
 }
 
@@ -178,11 +285,11 @@
     return NO;
 }
 
-- (void)sendNotificationWithTitle:(NSString *)title andLink:(NSURL *)linkUrl {
-    NSString *imageLinkString = [NSString stringWithFormat:@"%@", linkUrl];
+- (void)sendNotificationForImage:(RedditImage *)image {
+    NSString *imageLinkString = image.imageURL.description;
     
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.title = title;
+    notification.title = image.title;
     notification.informativeText = NSLocalizedString(@"New Wallpaper", "New wallpaper notification title") ;
     notification.soundName = NSUserNotificationDefaultSoundName;
     notification.userInfo = [NSDictionary dictionaryWithObject:imageLinkString
@@ -199,16 +306,28 @@
     if (interval <= 0) {
         interval = 18000;
     }
-    
+        
     return interval;
 }
 
 - (void)scheduleNewChange {
-    [NSTimer scheduledTimerWithAbsoluteFireDate:[NSDate dateWithTimeIntervalSinceNow:[self getChangeInterval]] target:self selector:@selector(nextWallpaper) userInfo:nil];
+    dispatch_sync(dispatch_get_main_queue(), ^() {
+        NSTimeInterval timeInterval = [self getChangeInterval];
+        
+        [self.timer invalidate];
+        self.timer = nil;
+        
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                                      target:self
+                                                    selector:@selector(nextWallpaperFromTimer)
+                                                    userInfo:nil
+                                                     repeats:NO];
+        self.timer.tolerance = 60;
+    });
 }
 
 - (void)cleanOldFiles {
-    NSString *dirPath = [self imagesFolderPath];
+    NSString *dirPath = [SRSettings imagesPath];
     NSURL *pathURL = [[NSURL alloc] initFileURLWithPath:dirPath isDirectory:YES];
     
     NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:pathURL includingPropertiesForKeys:@[NSURLContentModificationDateKey] options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
@@ -227,20 +346,5 @@
         
     }
 }
-
-- (NSString *)imagesFolderPath {
-    static NSString *folderPath;
-#warning Create specific folder for images
-    if (folderPath == nil) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsPath = [paths objectAtIndex:0];
-        folderPath = documentsPath;
-    }
-    
-    NSLog(@"Images folder path: %@", folderPath);
-    
-    return folderPath;
-}
-
 
 @end

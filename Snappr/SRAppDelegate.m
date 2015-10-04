@@ -19,12 +19,19 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
     [SRUtils setStartAtLogin:[self appURL] enabled:YES];
+    [[SUUpdater sharedUpdater] setDelegate:self];
     [[SUUpdater sharedUpdater] setSendsSystemProfile:YES];
+    [[SUUpdater sharedUpdater] setSendsSystemProfileAlways:YES];
+    [[SUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:YES];
+    [[SUUpdater sharedUpdater] setAutomaticallyDownloadsUpdates:YES];
+    
     [[NSTimer timerWithTimeInterval:3600
                              target:self
                            selector:@selector(checkForUpdates)
                            userInfo:nil
                             repeats:YES] fire];
+    
+    [SRWallpaperChanger sharedChanger];
 }
 
 - (void)awakeFromNib {
@@ -82,5 +89,19 @@
     [[SUUpdater sharedUpdater] checkForUpdatesInBackground];
 }
 
+#pragma mark SUUpdaterDelegate
+
+- (NSArray *)feedParametersForUpdater:(SUUpdater *)updater
+                 sendingSystemProfile:(BOOL)sendingProfile {
+    NSMutableArray *params = [[NSMutableArray alloc] init];
+    
+#if DEBUG
+    [params addObject:@{@"key": @"debug",
+                        @"value": @"true"}];
+#endif
+    
+    
+    return [params copy];
+}
 
 @end

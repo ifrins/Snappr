@@ -9,8 +9,6 @@
 
 @interface SRWallpaperChanger : NSObject
 
-@property NSTimer *timer;
-
 + (instancetype)sharedChanger;
 
 - (void) nextWallpaper;
