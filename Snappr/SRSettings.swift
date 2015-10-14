@@ -31,6 +31,26 @@ class SRSettings: NSObject {
         }
     }
     
+    class var refreshFrequency: NSTimeInterval {
+        get {
+            return getRefreshFrequency()
+        }
+        
+        set {
+            setRefreshFrequency(newValue)
+        }
+    }
+    
+    class var changeAllSpaces: Bool {
+        get {
+            return getAllSpacesChanging()
+        }
+        
+        set {
+            setAllSpacesChanging(newValue)
+        }
+    }
+    
     private class func getRootPath() -> String {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         
@@ -65,6 +85,33 @@ class SRSettings: NSObject {
     }
     
     private class func setLastUpdatedImage(date: NSDate) {
-        NSUserDefaults.standardUserDefaults().setObject(date, forKey: "last_updated")
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(date, forKey: "last_updated")
+    }
+    
+    private class func getRefreshFrequency() -> NSTimeInterval {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let interval = defaults.doubleForKey("refreshFrequency")
+        
+        if interval <= 0 {
+            return 18_000
+        }
+        
+        return interval
+    }
+    
+    private class func setRefreshFrequency(interval: NSTimeInterval) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setDouble(interval, forKey: "refreshFrequency")
+    }
+    
+    private class func getAllSpacesChanging() -> Bool {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        return defaults.boolForKey("changeAllSpaces")
+    }
+    
+    private class func setAllSpacesChanging(changing: Bool) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(changing, forKey: "changeAllSpaces")
     }
 }

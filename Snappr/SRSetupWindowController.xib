@@ -10,12 +10,12 @@
                 <outlet property="addModalWindow" destination="p9z-rL-wyL" id="udP-9x-apr"/>
                 <outlet property="subredditComboBox" destination="Z4h-Uw-BAD" id="Vj3-dU-tI2"/>
                 <outlet property="subredditsTableView" destination="jvR-hp-iu0" id="8Ci-wl-kye"/>
-                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+                <outlet property="window" destination="hp1-F4-plW" id="gUX-Dr-xke"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Snappr" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" animationBehavior="default" id="F0z-JX-Cv5">
+        <window title="Snappr" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="295"/>
@@ -47,7 +47,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="40" minWidth="40" maxWidth="1000" id="7TX-8Q-RUP">
+                                        <tableColumn width="443" minWidth="40" maxWidth="1000" id="7TX-8Q-RUP">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -221,10 +221,14 @@ Gw
                 <autoresizingMask key="autoresizingMask"/>
                 <animations/>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="79BB81C1-8CB0-41E5-8044-C8757C1F4F51" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="IBj-TN-0me">
+            <toolbar key="toolbar" implicitIdentifier="79BB81C1-8CB0-41E5-8044-C8757C1F4F51" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="IBj-TN-0me">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Qmo-9y-kRs"/>
-                    <toolbarItem implicitItemIdentifier="32826D12-D5AD-4303-A1C7-FB986630E677" explicitItemIdentifier="general" label="General" paletteLabel="General" tag="-1" image="NSAdvanced" selectable="YES" id="iay-Uk-5F0"/>
+                    <toolbarItem implicitItemIdentifier="32826D12-D5AD-4303-A1C7-FB986630E677" explicitItemIdentifier="general" label="General" paletteLabel="General" tag="-1" image="NSPreferencesGeneral" selectable="YES" id="iay-Uk-5F0">
+                        <connections>
+                            <action selector="showGeneralTab:" target="-2" id="vzv-B3-8V3"/>
+                        </connections>
+                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="56CDA041-0444-4D5C-AF2C-E3B3E3E24139" explicitItemIdentifier="subreddits" label="Subreddits" paletteLabel="Subreddits" tag="-1" image="NSListViewTemplate" selectable="YES" id="9se-e9-mOc"/>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
@@ -238,8 +242,8 @@ Gw
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSListViewTemplate" width="14" height="10"/>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

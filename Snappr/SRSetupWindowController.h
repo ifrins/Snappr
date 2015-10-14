@@ -13,6 +13,7 @@
 @property IBOutlet NSWindow* addModalWindow;
 @property IBOutlet NSComboBox* subredditComboBox;
 
+@property NSViewController *settingsViewController;
 @property NSInteger refreshFrequency;
 
 
@@ -22,5 +23,7 @@
 
 - (IBAction)modalDismiss:(id)sender;
 - (IBAction)modalAddSubreddit:(id)sender;
+
+- (IBAction)showGeneralTab:(id)sender;
 
 @end

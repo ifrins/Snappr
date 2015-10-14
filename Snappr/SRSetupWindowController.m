@@ -8,6 +8,7 @@
 #import "SRSetupWindowController.h"
 #import "SRSubredditDataStore.h"
 #import "SRWallpaperChanger.h"
+#import "Snappr-Swift.h"
 
 @interface SRSetupWindowController ()
 
@@ -26,6 +27,8 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
+    [self showGeneralTab:self];
+    
     [_subredditsTableView setDelegate:self];
     [_subredditsTableView setDataSource:[SRSubredditDataStore sharedDatastore]];
     [_subredditsTableView reloadData];
@@ -70,6 +73,11 @@
     [NSApp endSheet:_addModalWindow];
     [_addModalWindow orderOut:self];
     [_subredditsTableView reloadData];
+}
+
+- (IBAction)showGeneralTab:(id)sender {
+    self.settingsViewController = [[SRGeneralSettingsViewController alloc] init];
+    self.contentViewController = self.settingsViewController;
 }
 
 @end

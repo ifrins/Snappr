@@ -62,7 +62,7 @@
 - (void)scheduleInitialChange {
     NSDate *lastUpdate = [SRSettings lastUpdated];
     NSTimeInterval lastUpdateDelta = fabs(lastUpdate.timeIntervalSinceNow);
-    NSTimeInterval updateInterval = [self getChangeInterval];
+    NSTimeInterval updateInterval = [SRSettings refreshFrequency];
     
     if (lastUpdateDelta > updateInterval) {
         [self nextWallpaper];
@@ -103,22 +103,27 @@
 }
 
 - (void)checkIfSpaceNeedsWallpaper {
-    NSArray<NSScreen *> *screens = [NSScreen screens];
-    RedditImage *image = [[SRSubredditDataStore sharedDatastore] currentImage];
+    if ([SRSettings changeAllSpaces]) {
+        NSArray<NSScreen *> *screens = [NSScreen screens];
+        RedditImage *image = [[SRSubredditDataStore sharedDatastore] currentImage];
     
-    NSString *basePath = [SRSettings imagesPath];
-    NSString *imageURLMD5 = [image.imageURL.description MD5String];
-    NSString *path = [basePath stringByAppendingPathComponent:imageURLMD5];
+        NSString *basePath = [SRSettings imagesPath];
+        NSString *imageURLMD5 = [image.imageURL.description MD5String];
+        NSString *path = [basePath stringByAppendingPathComponent:imageURLMD5];
 
-    NSURL *fileUrl = [[NSURL alloc] initFileURLWithPath:path];
+        NSURL *fileUrl = [[NSURL alloc] initFileURLWithPath:path];
     
-    for (NSScreen *screen in screens) {
-        NSURL *screenImageURL;
-        screenImageURL = [[NSWorkspace sharedWorkspace] desktopImageURLForScreen:screen];
+        for (NSScreen *screen in screens) {
+            NSURL *screenImageURL;
+            screenImageURL = [[NSWorkspace sharedWorkspace] desktopImageURLForScreen:screen];
         
-        if (![screenImageURL isEqualTo:fileUrl]) {
-            NSError *error;
-            [[NSWorkspace sharedWorkspace] setDesktopImageURL:fileUrl forScreen:screen options:nil error:&error];
+            if (![screenImageURL isEqualTo:fileUrl]) {
+                NSError *error;
+                [[NSWorkspace sharedWorkspace] setDesktopImageURL:fileUrl
+                                                        forScreen:screen
+                                                          options:nil
+                                                            error:&error];
+            }
         }
     }
 }
@@ -298,21 +303,9 @@
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 }
 
-- (NSTimeInterval)getChangeInterval {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
-    NSTimeInterval interval = [prefs integerForKey:@"refreshFrequency"];
-    
-    if (interval <= 0) {
-        interval = 18000;
-    }
-        
-    return interval;
-}
-
 - (void)scheduleNewChange {
     dispatch_sync(dispatch_get_main_queue(), ^() {
-        NSTimeInterval timeInterval = [self getChangeInterval];
+        NSTimeInterval timeInterval = [SRSettings refreshFrequency];
         
         [self.timer invalidate];
         self.timer = nil;
