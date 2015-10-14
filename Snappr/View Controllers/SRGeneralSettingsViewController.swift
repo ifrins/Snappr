@@ -39,6 +39,14 @@ class SRGeneralSettingsViewController: NSViewController {
         SRSettings.refreshFrequency = freq
     }
     
+    @IBAction func updateSpacesCheckbox(sender: AnyObject) {
+        if spacesCheckbox.state == NSOnState {
+            SRSettings.changeAllSpaces = true
+        } else {
+            SRSettings.changeAllSpaces = true
+        }
+    }
+    
     private func timeIntervalForSlider(interval: Int) -> NSTimeInterval {
         var steps = (interval / 5) + 1
         

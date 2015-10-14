@@ -51,6 +51,9 @@
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="updateSpacesCheckbox:" target="-2" id="XY1-5k-ue5"/>
+                    </connections>
                 </button>
             </subviews>
             <animations/>
