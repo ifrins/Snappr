@@ -18,7 +18,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+#ifndef DEBUG
     [SRUtils setStartAtLogin:[self appURL] enabled:YES];
+#endif
     [[SUUpdater sharedUpdater] setDelegate:self];
     [[SUUpdater sharedUpdater] setSendsSystemProfile:YES];
     [[SUUpdater sharedUpdater] setSendsSystemProfileAlways:YES];
