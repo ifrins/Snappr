@@ -25,5 +25,6 @@
 - (IBAction)modalAddSubreddit:(id)sender;
 
 - (IBAction)showGeneralTab:(id)sender;
+- (IBAction)showSubredditsTab:(id)sender;
 
 @end

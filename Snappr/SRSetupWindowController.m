@@ -76,7 +76,16 @@
 }
 
 - (IBAction)showGeneralTab:(id)sender {
+    self.window.toolbar.selectedItemIdentifier = @"general";
+    
     self.settingsViewController = [[SRGeneralSettingsViewController alloc] init];
+    self.contentViewController = self.settingsViewController;
+}
+
+- (IBAction)showSubredditsTab:(id)sender {
+    self.window.toolbar.selectedItemIdentifier = @"subreddits";
+    
+    self.settingsViewController = [[SRSubredditsSettingsViewController alloc] init];
     self.contentViewController = self.settingsViewController;
 }
 

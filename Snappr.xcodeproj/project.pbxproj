@@ -13,6 +13,8 @@
 		1D3237661912AEBA009F2EA3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3237651912AEBA009F2EA3 /* WebKit.framework */; };
 		1D3237681912B14B009F2EA3 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D3237631912AE03009F2EA3 /* Sparkle.framework */; };
 		1D32376A1912B3BA009F2EA3 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1D3237691912B3BA009F2EA3 /* dsa_pub.pem */; };
+		1D3B33421BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B33401BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		1D3B33431BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3B33411BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		1D433E1B1BBC87C700629815 /* RedditImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D433E1A1BBC87C700629815 /* RedditImage.swift */; settings = {ASSET_TAGS = (); }; };
 		1D433E1D1BBC99B700629815 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D433E1C1BBC99B700629815 /* SwiftRegex.swift */; settings = {ASSET_TAGS = (); }; };
 		1D505750190D6CE300150FFF /* SRWallpaperChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D50574F190D6CE300150FFF /* SRWallpaperChanger.m */; };
@@ -71,6 +73,8 @@
 		1D3237631912AE03009F2EA3 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		1D3237651912AEBA009F2EA3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1D3237691912B3BA009F2EA3 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		1D3B33401BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SRSubredditsSettingsViewController.swift; path = "View Controllers/SRSubredditsSettingsViewController.swift"; sourceTree = "<group>"; };
+		1D3B33411BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SRSubredditsSettingsViewController.xib; path = "View Controllers/SRSubredditsSettingsViewController.xib"; sourceTree = "<group>"; };
 		1D433E191BBC87C700629815 /* Snappr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Snappr-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D433E1A1BBC87C700629815 /* RedditImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditImage.swift; sourceTree = "<group>"; };
 		1D433E1C1BBC99B700629815 /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 			children = (
 				1DB77B681BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift */,
 				1DB77B691BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib */,
+				1D3B33401BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift */,
+				1D3B33411BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				1D3237621912A65E009F2EA3 /* Credits.rtf in Resources */,
 				1DE6E662190FEAB400BFCCF1 /* SRSetupWindowController.xib in Resources */,
 				1DB77B6B1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib in Resources */,
+				1D3B33431BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib in Resources */,
 				1DF2A7CF190D1A5E00DF084F /* Images.xcassets in Resources */,
 				1DF2A7CD190D1A5E00DF084F /* MainMenu.xib in Resources */,
 			);
@@ -421,6 +428,7 @@
 				1DB77B6A1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift in Sources */,
 				1D505750190D6CE300150FFF /* SRWallpaperChanger.m in Sources */,
 				1DF2A7CA190D1A5E00DF084F /* SRAppDelegate.m in Sources */,
+				1D3B33421BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

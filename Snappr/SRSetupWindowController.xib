@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
     </dependencies>
     <objects>
@@ -229,7 +228,11 @@ Gw
                             <action selector="showGeneralTab:" target="-2" id="vzv-B3-8V3"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="56CDA041-0444-4D5C-AF2C-E3B3E3E24139" explicitItemIdentifier="subreddits" label="Subreddits" paletteLabel="Subreddits" tag="-1" image="NSListViewTemplate" selectable="YES" id="9se-e9-mOc"/>
+                    <toolbarItem implicitItemIdentifier="56CDA041-0444-4D5C-AF2C-E3B3E3E24139" explicitItemIdentifier="subreddits" label="Subreddits" paletteLabel="Subreddits" tag="-1" image="NSListViewTemplate" selectable="YES" id="9se-e9-mOc">
+                        <connections>
+                            <action selector="showSubredditsTab:" target="-2" id="qZW-3v-FS7"/>
+                        </connections>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="iay-Uk-5F0"/>

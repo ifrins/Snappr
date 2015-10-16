@@ -5,8 +5,9 @@
 //  Copyright (c) 2014 Snapr. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "Snappr-Swift.h"
+@import Cocoa;
+
+@class RedditImage;
 
 @interface SRSubredditDataStore : NSObject <NSTableViewDataSource>
 
