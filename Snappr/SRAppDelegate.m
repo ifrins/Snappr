@@ -57,6 +57,16 @@
     [NSApp orderFrontStandardAboutPanel:sender];
 }
 
+- (IBAction)showDonatePage:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"https://snappr.xyz/donate"];
+    [[NSWorkspace sharedWorkspace] openURL:url];
+}
+
+- (IBAction)showFeedbackPage:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"https://snappr.xyz/feedback"];
+    [[NSWorkspace sharedWorkspace] openURL:url];
+}
+
 - (IBAction)viewCurrentWallpaper:(id)sender {
     RedditImage *image = [[SRSubredditDataStore sharedDatastore] currentImage];
     

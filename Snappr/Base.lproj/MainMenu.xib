@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
     </dependencies>
     <objects>
@@ -33,7 +32,7 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="laL-bS-Unl"/>
-                <menuItem title="Settings" id="ywb-dV-wP8">
+                <menuItem title="Preferences…" id="ywb-dV-wP8">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openSettings:" target="Voe-Tx-rLC" id="Voh-1B-JcZ"/>
@@ -43,6 +42,19 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openAbout:" target="Voe-Tx-rLC" id="wTh-ET-zPR"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="kFW-h3-qBe"/>
+                <menuItem title="Feedback…" id="R3L-3X-HjZ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showFeedbackPage:" target="Voe-Tx-rLC" id="Dfo-q5-bji"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Donate…" id="qqw-BV-SLv">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showDonatePage:" target="Voe-Tx-rLC" id="3il-C9-ZGh"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="0Hg-aX-QO7"/>

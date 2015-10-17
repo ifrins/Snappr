@@ -21,4 +21,7 @@
 - (IBAction)openSettings:(id)sender;
 - (IBAction)viewCurrentWallpaper:(id)sender;
 
+- (IBAction)showDonatePage:(id)sender;
+- (IBAction)showFeedbackPage:(id)sender;
+
 @end
