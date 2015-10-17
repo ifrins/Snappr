@@ -24,7 +24,7 @@
 - (NSArray *)getImagesFor:(NSString *)subreddit {
     NSMutableArray *imagesArray = [[NSMutableArray alloc] init];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://reddit.com/r/%@/hot.json", subreddit]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.reddit.com/r/%@/hot.json", subreddit]];
     NSMutableURLRequest *subredditRequest = [NSMutableURLRequest requestWithURL:url
                                                                     cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                                 timeoutInterval:15.0];
