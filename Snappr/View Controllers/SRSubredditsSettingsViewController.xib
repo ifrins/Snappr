@@ -6,6 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SRSubredditsSettingsViewController" customModule="Snappr" customModuleProvider="target">
             <connections>
+                <outlet property="addModalWindow" destination="vJb-Vm-Q8H" id="GYO-kQ-6gu"/>
+                <outlet property="newSubredditField" destination="X1A-FD-bPU" id="2ir-f6-Xum"/>
                 <outlet property="subredditsTable" destination="mEd-af-hqe" id="hwu-1a-NBD"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -16,14 +18,31 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwi-1x-Gy8">
+                <segmentedControl verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PgW-r2-QqC">
+                    <rect key="frame" x="20" y="28" width="440" height="23"/>
+                    <animations/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="smallSquare" trackingMode="momentary" id="T0B-cf-Bl3">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment label="+"/>
+                            <segment label="-" tag="1"/>
+                            <segment width="380">
+                                <nil key="label"/>
+                            </segment>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="segmentControlAction:" target="-2" id="6rh-Se-gb0"/>
+                    </connections>
+                </segmentedControl>
+                <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwi-1x-Gy8">
                     <rect key="frame" x="20" y="49" width="440" height="203"/>
-                    <clipView key="contentView" id="Ayr-SP-lnT">
+                    <clipView key="contentView" focusRingType="none" id="Ayr-SP-lnT">
                         <rect key="frame" x="1" y="1" width="438" height="201"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="mEd-af-hqe">
-                                <rect key="frame" x="0.0" y="0.0" width="438" height="0.0"/>
+                            <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="mEd-af-hqe">
+                                <rect key="frame" x="0.0" y="0.0" width="438" height="19"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <animations/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -61,30 +80,65 @@
                         <animations/>
                     </scroller>
                 </scrollView>
-                <segmentedControl verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PgW-r2-QqC">
-                    <rect key="frame" x="20" y="28" width="440" height="23"/>
-                    <animations/>
-                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="smallSquare" trackingMode="momentary" id="T0B-cf-Bl3">
-                        <font key="font" metaFont="system"/>
-                        <segments>
-                            <segment label="+"/>
-                            <segment label="-" tag="1"/>
-                            <segment width="380">
-                                <nil key="label"/>
-                            </segment>
-                        </segments>
-                    </segmentedCell>
-                </segmentedControl>
             </subviews>
             <constraints>
-                <constraint firstItem="PgW-r2-QqC" firstAttribute="leading" secondItem="Lwi-1x-Gy8" secondAttribute="leading" id="46A-mG-TWH"/>
-                <constraint firstItem="PgW-r2-QqC" firstAttribute="top" secondItem="Lwi-1x-Gy8" secondAttribute="top" id="8pz-q0-fWz"/>
-                <constraint firstItem="PgW-r2-QqC" firstAttribute="width" secondItem="Lwi-1x-Gy8" secondAttribute="width" id="Pyx-49-rHx"/>
+                <constraint firstItem="PgW-r2-QqC" firstAttribute="width" secondItem="mEd-af-hqe" secondAttribute="width" id="3iU-SV-1qp"/>
+                <constraint firstItem="PgW-r2-QqC" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Ckf-60-Cix"/>
+                <constraint firstAttribute="trailing" secondItem="Lwi-1x-Gy8" secondAttribute="trailing" constant="20" id="LJU-vs-yQb"/>
                 <constraint firstItem="Lwi-1x-Gy8" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="a7a-1H-Xqw"/>
                 <constraint firstItem="Lwi-1x-Gy8" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="bK3-5h-x05"/>
                 <constraint firstAttribute="bottom" secondItem="Lwi-1x-Gy8" secondAttribute="bottom" constant="49" id="iwI-Cc-upc"/>
+                <constraint firstItem="PgW-r2-QqC" firstAttribute="top" secondItem="mEd-af-hqe" secondAttribute="bottom" id="zkL-xc-y5P"/>
             </constraints>
             <animations/>
         </customView>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="vJb-Vm-Q8H">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="207" width="188" height="91"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <view key="contentView" id="996-ZC-ZFd">
+                <rect key="frame" x="0.0" y="0.0" width="188" height="91"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1A-FD-bPU">
+                        <rect key="frame" x="20" y="49" width="148" height="22"/>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Subreddit name…" drawsBackground="YES" id="Xye-ra-EaK">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yns-99-jva">
+                        <rect key="frame" x="109" y="13" width="65" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="acV-qw-bh1">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="addSubreddit:" target="-2" id="Bcn-d6-Wts"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaT-09-aKK">
+                        <rect key="frame" x="14" y="13" width="82" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eSR-SU-hgL">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="dismissSubredditModal:" target="-2" id="rug-dF-rV0"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <animations/>
+            </view>
+            <point key="canvasLocation" x="153" y="-65.5"/>
+        </window>
     </objects>
 </document>
