@@ -9,20 +9,7 @@
 
 @interface SRSetupWindowController : NSWindowController <NSTableViewDelegate>
 
-@property IBOutlet NSTableView* subredditsTableView;
-@property IBOutlet NSWindow* addModalWindow;
-@property IBOutlet NSComboBox* subredditComboBox;
-
 @property NSViewController *settingsViewController;
-@property NSInteger refreshFrequency;
-
-
-- (IBAction)addSubreddit:(id)sender;
-- (IBAction)removeSubreddit:(id)sender;
-- (IBAction)frequencyChanged:(id)sender;
-
-- (IBAction)modalDismiss:(id)sender;
-- (IBAction)modalAddSubreddit:(id)sender;
 
 - (IBAction)showGeneralTab:(id)sender;
 - (IBAction)showSubredditsTab:(id)sender;
