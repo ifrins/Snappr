@@ -101,6 +101,8 @@
     [params addObject:@{@"key": @"debug",
                         @"value": @"true"}];
 #endif
+    [params addObject:@{@"key": @"uuid",
+                        @"value": [SRSettings instanceUUID]}];
     
     
     return [params copy];

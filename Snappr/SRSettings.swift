@@ -51,6 +51,10 @@ class SRSettings: NSObject {
         }
     }
     
+    class var instanceUUID: String {
+        return getInstanceUUID()
+    }
+    
     private class func getRootPath() -> String {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         
@@ -113,5 +117,19 @@ class SRSettings: NSObject {
     private class func setAllSpacesChanging(changing: Bool) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setBool(changing, forKey: "changeAllSpaces")
+    }
+    
+    private class func getInstanceUUID() -> String {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let savedUUID = defaults.stringForKey("instanceUUID")
+        
+        if savedUUID != nil {
+            return savedUUID!
+        } else {
+            let generatedUUID = NSUUID().UUIDString
+            defaults.setObject(generatedUUID, forKey: "instanceUUID")
+            return generatedUUID
+        }
+        
     }
 }
