@@ -68,7 +68,7 @@
         [self nextWallpaper];
     } else {
         NSTimeInterval newInterval = updateInterval - lastUpdateDelta;
-        
+        [self.timer invalidate];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:newInterval
                                                       target:self
                                                     selector:@selector(nextWallpaperFromTimer)
