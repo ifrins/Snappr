@@ -107,6 +107,8 @@ class SRSettings: NSObject {
     private class func setRefreshFrequency(interval: NSTimeInterval) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setDouble(interval, forKey: "refreshFrequency")
+
+        SRWallpaperChanger.sharedChanger().changeTimerWithNewRepetition(interval);
     }
     
     private class func getAllSpacesChanging() -> Bool {
