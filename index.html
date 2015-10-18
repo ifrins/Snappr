@@ -1,55 +1,25 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Snappr by ifrins</title>
+---
+layout: default
+redirect_to:
+  - https://snappr.xyz
+---
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<div class="home">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Snappr</h1>
-        <p>An OS X Menu Bar Utility that changes your wallpaper with pictures from Reddit</p>
-        <p class="view"><a href="https://github.com/ifrins/Snappr">View the Project on GitHub <small>ifrins/Snappr</small></a></p>
-        <ul>
-          <li><a href="https://github.com/ifrins/Snappr/releases/latest">Download <strong>Snappr</strong></a></li>
-          <li><a href="https://github.com/ifrins/Snappr">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a name="snappr" class="anchor" href="#snappr"><span class="octicon octicon-link"></span></a>Snappr</h1>
+  <h1 class="page-heading">Posts</h1>
 
-<p>Snappr is a little utility that lives on the menu bar on OS X. Do you think that changing your wallpaper is a daunting task? Then Snappr is made for you, as it automatically changes the wallpaper of your Mac from the images posted on the subreddits you have chosen. </p>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-<p>It only uses images with the appropriate resolution (and it’s fully compatible with Retina Macs) so you don’t end up with a pixelated background in a high-resolution screen.</p>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-<p>In addition, it avoids repeating the same image in order to have a fresh work environment.</p>
-      </section>
-    </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/ifrins">ifrins</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-      ga('create', 'UA-30886522-1', 'ifrins.github.io');
-      ga('send', 'pageview');
-
-    </script>
-  </body>
-</html>
+</div>
