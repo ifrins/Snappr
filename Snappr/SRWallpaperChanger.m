@@ -193,18 +193,19 @@
         
             NSLog(@"SR – Setting wallpaper to %@", fileURL);
         
-            for (NSScreen *screen in screens) {
-                dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (NSScreen *screen in screens) {
                     NSError* error;
                     [[NSWorkspace sharedWorkspace] setDesktopImageURL:fileURL forScreen:screen options:nil error:&error];
                     
                     if (error == nil) {
                         [[SRSubredditDataStore sharedDatastore] setCurrentImage:imageToUse];
                         [SRSettings setLastUpdated:[NSDate date]];
-                        [self sendNotificationForImage:imageToUse];
                     }
-                });
-            }
+                }
+                [self sendNotificationForImage:imageToUse];
+            });
+
             break;
         }
         
