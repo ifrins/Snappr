@@ -56,10 +56,11 @@ class SRSettings: NSObject {
     }
     
     private class func getRootPath() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let paths = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)
         
         if paths.count > 0 {
-            return paths[0]
+            var path = paths[0] + "/Snappr"
+            return path
         }
         
         return ""
