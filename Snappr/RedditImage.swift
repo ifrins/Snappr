@@ -32,7 +32,7 @@ class RedditImage: NSObject {
         let data = JSONData.objectForKey("data")
         
         if let url = data?.objectForKey("url") {
-            self.imageURL = NSURL.init(string: url as! String)!
+            self.imageURL = NSURL.init(string: url as! String)
         }
         
         if let data_title = data?.objectForKey("title") {
