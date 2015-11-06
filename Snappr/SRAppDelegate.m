@@ -114,6 +114,9 @@
     [params addObject:@{@"key": @"uuid",
                         @"value": [SRSettings instanceUUID]}];
     
+    [params addObject:@{@"key": @"refresh",
+                        @"value": [NSNumber numberWithInteger:[SRSettings refreshFrequency]]}];
+    
     
     return [params copy];
 }
