@@ -38,7 +38,7 @@ public class SRStatistical: NSObject, SUUpdaterDelegate  {
     
     public func trackWallpaperChange() {
         #if DEBUG
-            return true;
+            return;
         #endif
 
         let appVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion")!
