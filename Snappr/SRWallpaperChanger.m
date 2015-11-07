@@ -302,6 +302,8 @@
                                                         forKey:@"link"];
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+    
+    [[SRStatistical sharedStatitical] trackWallpaperChange];
 }
 
 - (void)scheduleNewChange {

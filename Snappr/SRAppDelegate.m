@@ -21,7 +21,7 @@
 #ifndef DEBUG
     [SRUtils setStartAtLogin:[self appURL] enabled:YES];
 #endif
-    [[SUUpdater sharedUpdater] setDelegate:self];
+    [[SUUpdater sharedUpdater] setDelegate: [SRStatistical sharedStatitical]];
     [[SUUpdater sharedUpdater] setSendsSystemProfile:YES];
     [[SUUpdater sharedUpdater] setSendsSystemProfileAlways:YES];
     [[SUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:YES];
@@ -97,28 +97,10 @@
 }
 
 - (void)checkForUpdates {
-    NSLog(@"Checking for updates!");
-    [[SUUpdater sharedUpdater] checkForUpdatesInBackground];
-}
-
-#pragma mark SUUpdaterDelegate
-
-- (NSArray *)feedParametersForUpdater:(SUUpdater *)updater
-                 sendingSystemProfile:(BOOL)sendingProfile {
-    NSMutableArray *params = [[NSMutableArray alloc] init];
-    
 #if DEBUG
-    [params addObject:@{@"key": @"debug",
-                        @"value": @"true"}];
+    NSLog(@"Snappr::Sparkle:: Checking for updates");
 #endif
-    [params addObject:@{@"key": @"uuid",
-                        @"value": [SRSettings instanceUUID]}];
-    
-    [params addObject:@{@"key": @"refresh",
-                        @"value": [NSNumber numberWithInteger:[SRSettings refreshFrequency]]}];
-    
-    
-    return [params copy];
+    [[SUUpdater sharedUpdater] checkForUpdatesInBackground];
 }
 
 @end

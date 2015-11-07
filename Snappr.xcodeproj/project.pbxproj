@@ -40,6 +40,7 @@
 		1DF2A7DF190D1A5E00DF084F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DF2A7DD190D1A5E00DF084F /* InfoPlist.strings */; };
 		1DF2A7E1190D1A5E00DF084F /* SnapprTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2A7E0190D1A5E00DF084F /* SnapprTests.m */; };
 		1DF2A7EC190D1E9E00DF084F /* SRRedditParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2A7EB190D1E9E00DF084F /* SRRedditParser.m */; };
+		1DFBDA6C1BEEAA54001F1B5C /* SRStatistical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFBDA6B1BEEAA54001F1B5C /* SRStatistical.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		1DF2A7E0190D1A5E00DF084F /* SnapprTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnapprTests.m; sourceTree = "<group>"; };
 		1DF2A7EA190D1E9E00DF084F /* SRRedditParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRedditParser.h; sourceTree = "<group>"; };
 		1DF2A7EB190D1E9E00DF084F /* SRRedditParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRedditParser.m; sourceTree = "<group>"; };
+		1DFBDA6B1BEEAA54001F1B5C /* SRStatistical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRStatistical.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 				1D433E1C1BBC99B700629815 /* SwiftRegex.swift */,
 				1D1164881BBB474C006A66CE /* Snappr.entitlements */,
 				1D9502D11BC17992002E2ED0 /* SRSettings.swift */,
+				1DFBDA6B1BEEAA54001F1B5C /* SRStatistical.swift */,
 			);
 			path = Snappr;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DFBDA6C1BEEAA54001F1B5C /* SRStatistical.swift in Sources */,
 				1D5408FD1913EDE2005EFAC1 /* NoodleGlue.m in Sources */,
 				1D9502D21BC17992002E2ED0 /* SRSettings.swift in Sources */,
 				1DF2A7C3190D1A5E00DF084F /* main.m in Sources */,
@@ -578,6 +582,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Snappr/Snappr-Bridging-Header.h";
