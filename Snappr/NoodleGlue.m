@@ -93,7 +93,7 @@ static char cleanupGlueKey;
 {
 	NSMutableDictionary	*glueTable;
 	NoodleGlue			*glue;
-	__block __weak id	blockSelf;
+	__block id	blockSelf;
 	id					key;
 	
 	blockSelf = self;

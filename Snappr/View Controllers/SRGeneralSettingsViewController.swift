@@ -27,6 +27,7 @@ class SRGeneralSettingsViewController: NSViewController {
         
         let refreshFrequency = SRSettings.refreshFrequency
         setTimeLabel(refreshFrequency)
+        setTimeSlider(refreshFrequency)
         
         let spacesChanging = SRSettings.changeAllSpaces
         setSpaceChanging(spacesChanging)
@@ -47,18 +48,21 @@ class SRGeneralSettingsViewController: NSViewController {
         }
     }
     
+    private func setTimeSlider(timeInterval: NSTimeInterval) {
+        let step = sliderPositionFromTimeInterval(timeInterval)
+        let closest = frequencySlider.closestTickMarkValueToValue(step)
+        frequencySlider.doubleValue = closest
+    }
+    
     private func timeIntervalForSlider(interval: Int) -> NSTimeInterval {
-        var steps = (interval / 5) + 1
-        
-        if steps > 5 {
-            steps += 5
-        }
-        
-        if steps > 16 {
-            steps += 9
-        }
+        let steps = (interval + 1)
         
         return NSTimeInterval(steps * 3600)
+    }
+    
+    private func sliderPositionFromTimeInterval(timeInterval: NSTimeInterval) -> Double {
+        let position = (timeInterval / 3600 / 22) - 1
+        return position
     }
     
     private func setTimeLabel(seconds: NSTimeInterval) {

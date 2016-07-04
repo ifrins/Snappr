@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SRGeneralSettingsViewController" customModule="Snappr" customModuleProvider="target">
@@ -20,7 +20,6 @@
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TeY-f2-zmH">
                     <rect key="frame" x="13" y="235" width="120" height="17"/>
-                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Update Frequency:" id="aSF-z3-TtJ">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -29,7 +28,6 @@
                 </textField>
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwR-mh-wga">
                     <rect key="frame" x="142" y="223" width="315" height="27"/>
-                    <animations/>
                     <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="40" tickMarkPosition="below" numberOfTickMarks="21" allowsTickMarkValuesOnly="YES" sliderType="linear" id="W1P-6W-4tf"/>
                     <connections>
                         <action selector="updateLabel:" target="-2" id="uaK-LY-RHT"/>
@@ -37,7 +35,6 @@
                 </slider>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vv-79-gQ0">
                     <rect key="frame" x="142" y="199" width="315" height="17"/>
-                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="Wbw-Gn-b44">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -46,7 +43,6 @@
                 </textField>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-cO-Vud">
                     <rect key="frame" x="13" y="170" width="444" height="18"/>
-                    <animations/>
                     <buttonCell key="cell" type="check" title="Change the wallpaper of all Spaces" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hnb-eC-V2v">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -56,7 +52,6 @@
                     </connections>
                 </button>
             </subviews>
-            <animations/>
         </customView>
     </objects>
 </document>

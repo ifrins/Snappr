@@ -6,7 +6,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <Sparkle/Sparkle.h>
+#import <DevMateKit/DevMateKit.h>
+
 #import "SRSetupWindowController.h"
 
 @interface SRAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate, SUUpdaterDelegate>

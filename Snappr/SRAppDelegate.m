@@ -12,18 +12,17 @@
 #import "SRSetupWindowController.h"
 #import "Snappr-Swift.h"
 #import "SRUtils.h"
-#import <Sparkle/Sparkle.h>
 
 @implementation SRAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    [DevMateKit sendTrackingReport:nil delegate:nil];
+    [DevMateKit setupIssuesController:nil reportingUnhandledIssues:YES];
 #ifndef DEBUG
     [SRUtils setStartAtLogin:[self appURL] enabled:YES];
 #endif
     [[SUUpdater sharedUpdater] setDelegate: [SRStatistical sharedStatitical]];
-    [[SUUpdater sharedUpdater] setSendsSystemProfile:YES];
-    [[SUUpdater sharedUpdater] setSendsSystemProfileAlways:YES];
     [[SUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:YES];
     [[SUUpdater sharedUpdater] setAutomaticallyDownloadsUpdates:YES];
     

@@ -9,24 +9,22 @@
 /* Begin PBXBuildFile section */
 		1D32375B19129E19009F2EA3 /* SRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D32375A19129E19009F2EA3 /* SRUtils.m */; };
 		1D3237621912A65E009F2EA3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1D3237601912A65E009F2EA3 /* Credits.rtf */; };
-		1D3237641912AE03009F2EA3 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3237631912AE03009F2EA3 /* Sparkle.framework */; };
 		1D3237661912AEBA009F2EA3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3237651912AEBA009F2EA3 /* WebKit.framework */; };
-		1D3237681912B14B009F2EA3 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D3237631912AE03009F2EA3 /* Sparkle.framework */; };
 		1D32376A1912B3BA009F2EA3 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1D3237691912B3BA009F2EA3 /* dsa_pub.pem */; };
-		1D3B33421BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B33401BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		1D3B33431BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3B33411BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		1D433E1B1BBC87C700629815 /* RedditImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D433E1A1BBC87C700629815 /* RedditImage.swift */; settings = {ASSET_TAGS = (); }; };
-		1D433E1D1BBC99B700629815 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D433E1C1BBC99B700629815 /* SwiftRegex.swift */; settings = {ASSET_TAGS = (); }; };
+		1D3B33421BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B33401BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift */; };
+		1D3B33431BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3B33411BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib */; };
+		1D433E1B1BBC87C700629815 /* RedditImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D433E1A1BBC87C700629815 /* RedditImage.swift */; };
+		1D433E1D1BBC99B700629815 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D433E1C1BBC99B700629815 /* SwiftRegex.swift */; };
 		1D505750190D6CE300150FFF /* SRWallpaperChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D50574F190D6CE300150FFF /* SRWallpaperChanger.m */; };
 		1D505753190D707500150FFF /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505752190D707500150FFF /* NSMutableArray_Shuffling.m */; };
 		1D505756190D74D000150FFF /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505755190D74D000150FFF /* NSFileManager+DirectoryLocations.m */; };
 		1D50575B190D758A00150FFF /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D50575A190D758A00150FFF /* NSString+MD5.m */; };
 		1D5408FA1913ED98005EFAC1 /* NSTimer+NoodleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5408F91913ED98005EFAC1 /* NSTimer+NoodleExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D5408FD1913EDE2005EFAC1 /* NoodleGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5408FC1913EDE2005EFAC1 /* NoodleGlue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1D9502D21BC17992002E2ED0 /* SRSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9502D11BC17992002E2ED0 /* SRSettings.swift */; settings = {ASSET_TAGS = (); }; };
+		1D9502D21BC17992002E2ED0 /* SRSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9502D11BC17992002E2ED0 /* SRSettings.swift */; };
 		1D9520D8190FF8A5002E7B08 /* SRSubredditDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9520D7190FF8A5002E7B08 /* SRSubredditDataStore.m */; };
-		1DB77B6A1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB77B681BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		1DB77B6B1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB77B691BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		1DB77B6A1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB77B681BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift */; };
+		1DB77B6B1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB77B691BBDC0C500ACFF75 /* SRGeneralSettingsViewController.xib */; };
 		1DE6E661190FEAB400BFCCF1 /* SRSetupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6E65F190FEAB400BFCCF1 /* SRSetupWindowController.m */; };
 		1DE6E662190FEAB400BFCCF1 /* SRSetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE6E660190FEAB400BFCCF1 /* SRSetupWindowController.xib */; };
 		1DF2A7B7190D1A5E00DF084F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF2A7B6190D1A5E00DF084F /* Cocoa.framework */; };
@@ -40,7 +38,9 @@
 		1DF2A7DF190D1A5E00DF084F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DF2A7DD190D1A5E00DF084F /* InfoPlist.strings */; };
 		1DF2A7E1190D1A5E00DF084F /* SnapprTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2A7E0190D1A5E00DF084F /* SnapprTests.m */; };
 		1DF2A7EC190D1E9E00DF084F /* SRRedditParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2A7EB190D1E9E00DF084F /* SRRedditParser.m */; };
-		1DFBDA6C1BEEAA54001F1B5C /* SRStatistical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFBDA6B1BEEAA54001F1B5C /* SRStatistical.swift */; settings = {ASSET_TAGS = (); }; };
+		1DF440EB1D2AFFF200E3DD86 /* DevMateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF440EA1D2AFFF200E3DD86 /* DevMateKit.framework */; };
+		1DF440EC1D2B009E00E3DD86 /* DevMateKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1DF440EA1D2AFFF200E3DD86 /* DevMateKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1DFBDA6C1BEEAA54001F1B5C /* SRStatistical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFBDA6B1BEEAA54001F1B5C /* SRStatistical.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1D3237681912B14B009F2EA3 /* Sparkle.framework in CopyFiles */,
+				1DF440EC1D2B009E00E3DD86 /* DevMateKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +71,6 @@
 		1D32375919129E19009F2EA3 /* SRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRUtils.h; sourceTree = "<group>"; };
 		1D32375A19129E19009F2EA3 /* SRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRUtils.m; sourceTree = "<group>"; };
 		1D3237611912A65E009F2EA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		1D3237631912AE03009F2EA3 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		1D3237651912AEBA009F2EA3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1D3237691912B3BA009F2EA3 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		1D3B33401BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SRSubredditsSettingsViewController.swift; path = "View Controllers/SRSubredditsSettingsViewController.swift"; sourceTree = "<group>"; };
@@ -120,6 +119,7 @@
 		1DF2A7E0190D1A5E00DF084F /* SnapprTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnapprTests.m; sourceTree = "<group>"; };
 		1DF2A7EA190D1E9E00DF084F /* SRRedditParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRedditParser.h; sourceTree = "<group>"; };
 		1DF2A7EB190D1E9E00DF084F /* SRRedditParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRedditParser.m; sourceTree = "<group>"; };
+		1DF440EA1D2AFFF200E3DD86 /* DevMateKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DevMateKit.framework; sourceTree = "<group>"; };
 		1DFBDA6B1BEEAA54001F1B5C /* SRStatistical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRStatistical.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +130,7 @@
 			files = (
 				1D3237661912AEBA009F2EA3 /* WebKit.framework in Frameworks */,
 				1DF2A7B7190D1A5E00DF084F /* Cocoa.framework in Frameworks */,
-				1D3237641912AE03009F2EA3 /* Sparkle.framework in Frameworks */,
+				1DF440EB1D2AFFF200E3DD86 /* DevMateKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				1D3237651912AEBA009F2EA3 /* WebKit.framework */,
-				1D3237631912AE03009F2EA3 /* Sparkle.framework */,
 				1D505757190D757400150FFF /* libcommonCrypto.dylib */,
 				1DF2A7B6190D1A5E00DF084F /* Cocoa.framework */,
 				1DF2A7D5190D1A5E00DF084F /* XCTest.framework */,
@@ -227,6 +226,7 @@
 		1DF2A7BC190D1A5E00DF084F /* Snappr */ = {
 			isa = PBXGroup;
 			children = (
+				1DF440E91D2AFFF200E3DD86 /* DevMateKit */,
 				1D433E181BBC87A500629815 /* Models */,
 				1DB77B6C1BBDC0CF00ACFF75 /* View Controllers */,
 				1D50575C190D7AF000150FFF /* Categories */,
@@ -284,6 +284,14 @@
 				1DF2A7DD190D1A5E00DF084F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DF440E91D2AFFF200E3DD86 /* DevMateKit */ = {
+			isa = PBXGroup;
+			children = (
+				1DF440EA1D2AFFF200E3DD86 /* DevMateKit.framework */,
+			);
+			path = DevMateKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -572,6 +580,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Snappr/DevMateKit",
+					"$(PROJECT_DIR)/Snappr/DevMateKit/DevMateKit.framework/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snappr/Snappr-Prefix.pch";
@@ -603,6 +613,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Snappr/DevMateKit",
+					"$(PROJECT_DIR)/Snappr/DevMateKit/DevMateKit.framework/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snappr/Snappr-Prefix.pch";
