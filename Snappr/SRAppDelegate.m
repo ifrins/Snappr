@@ -2,7 +2,7 @@
 //  SRAppDelegate.m
 //  Snappr
 //
-//  Copyright (c) 2014 Snapr. All rights reserved.
+//  Copyright (c) 2014 Snappr. All rights reserved.
 //
 
 #import "SRAppDelegate.h"
@@ -100,6 +100,14 @@
     NSLog(@"Snappr::Sparkle:: Checking for updates");
 #endif
     [[SUUpdater sharedUpdater] checkForUpdatesInBackground];
+}
+
+- (BOOL)updater:(DM_SUUpdater *)updater mayShowModalAlert:(NSAlert *)alert {
+    return NO;
+}
+
+- (void)updater:(DM_SUUpdater *)updater willInstallUpdateOnQuit:(DM_SUAppcastItem *)item immediateInstallationInvocation:(NSInvocation *)invocation {
+    [invocation invoke];
 }
 
 @end
