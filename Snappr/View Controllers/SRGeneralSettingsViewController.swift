@@ -61,7 +61,7 @@ class SRGeneralSettingsViewController: NSViewController {
     }
     
     private func sliderPositionFromTimeInterval(timeInterval: NSTimeInterval) -> Double {
-        let position = (timeInterval / 3600 / 22) - 1
+        let position = (timeInterval / 3600) - 1
         return position
     }
     
