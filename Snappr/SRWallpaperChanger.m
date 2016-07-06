@@ -9,7 +9,6 @@
 #import "Snappr-Swift.h"
 #import "SRRedditParser.h"
 #import "NSMutableArray_Shuffling.h"
-#import "NSFileManager+DirectoryLocations.h"
 #import "NSString+MD5.h"
 #import "SRSubredditDataStore.h"
 

@@ -17,7 +17,6 @@
 		1D433E1D1BBC99B700629815 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D433E1C1BBC99B700629815 /* SwiftRegex.swift */; };
 		1D505750190D6CE300150FFF /* SRWallpaperChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D50574F190D6CE300150FFF /* SRWallpaperChanger.m */; };
 		1D505753190D707500150FFF /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505752190D707500150FFF /* NSMutableArray_Shuffling.m */; };
-		1D505756190D74D000150FFF /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D505755190D74D000150FFF /* NSFileManager+DirectoryLocations.m */; };
 		1D50575B190D758A00150FFF /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D50575A190D758A00150FFF /* NSString+MD5.m */; };
 		1D5408FA1913ED98005EFAC1 /* NSTimer+NoodleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5408F91913ED98005EFAC1 /* NSTimer+NoodleExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D5408FD1913EDE2005EFAC1 /* NoodleGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5408FC1913EDE2005EFAC1 /* NoodleGlue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -82,8 +81,6 @@
 		1D50574F190D6CE300150FFF /* SRWallpaperChanger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWallpaperChanger.m; sourceTree = "<group>"; };
 		1D505751190D704700150FFF /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
 		1D505752190D707500150FFF /* NSMutableArray_Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableArray_Shuffling.m; sourceTree = "<group>"; };
-		1D505754190D74D000150FFF /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
-		1D505755190D74D000150FFF /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
 		1D505757190D757400150FFF /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		1D505759190D758A00150FFF /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		1D50575A190D758A00150FFF /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
@@ -157,8 +154,6 @@
 		1D50575C190D7AF000150FFF /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				1D505754190D74D000150FFF /* NSFileManager+DirectoryLocations.h */,
-				1D505755190D74D000150FFF /* NSFileManager+DirectoryLocations.m */,
 				1D505751190D704700150FFF /* NSMutableArray_Shuffling.h */,
 				1D505752190D707500150FFF /* NSMutableArray_Shuffling.m */,
 				1D505759190D758A00150FFF /* NSString+MD5.h */,
@@ -435,7 +430,6 @@
 				1D5408FA1913ED98005EFAC1 /* NSTimer+NoodleExtensions.m in Sources */,
 				1DF2A7EC190D1E9E00DF084F /* SRRedditParser.m in Sources */,
 				1D433E1B1BBC87C700629815 /* RedditImage.swift in Sources */,
-				1D505756190D74D000150FFF /* NSFileManager+DirectoryLocations.m in Sources */,
 				1D9520D8190FF8A5002E7B08 /* SRSubredditDataStore.m in Sources */,
 				1DB77B6A1BBDC0C500ACFF75 /* SRGeneralSettingsViewController.swift in Sources */,
 				1D505750190D6CE300150FFF /* SRWallpaperChanger.m in Sources */,

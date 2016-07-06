@@ -3,5 +3,4 @@
 //
 
 #import "SRSubredditDataStore.h"
-#import "NSFileManager+DirectoryLocations.h"
 #import "SRWallpaperChanger.h"

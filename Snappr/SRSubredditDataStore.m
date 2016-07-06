@@ -9,8 +9,6 @@
 
 #import "Snappr-Swift.h"
 
-#import "NSFileManager+DirectoryLocations.h"
-
 @implementation SRSubredditDataStore
 
 + (instancetype)sharedDatastore {

@@ -56,10 +56,19 @@ class SRSettings: NSObject {
     }
     
     private class func getRootPath() -> String {
+        let fileManager = NSFileManager.defaultManager()
         let paths = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)
         
         if paths.count > 0 {
-            var path = paths[0] + "/Snappr"
+            let path = paths[0] + "/Snappr"
+            let fileExists = fileManager.fileExistsAtPath(path)
+            
+            if !fileExists {
+                try? fileManager.createDirectoryAtPath(path,
+                                                       withIntermediateDirectories: true,
+                                                       attributes: nil)
+            }
+            
             return path
         }
         
