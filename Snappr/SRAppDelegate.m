@@ -62,8 +62,7 @@
 }
 
 - (IBAction)showFeedbackPage:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"https://snappr.xyz/feedback"];
-    [[NSWorkspace sharedWorkspace] openURL:url];
+    [DevMateKit showFeedbackDialog:nil inMode:DMFeedbackIndependentMode];
 }
 
 - (IBAction)viewCurrentWallpaper:(id)sender {
