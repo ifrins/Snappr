@@ -8,7 +8,6 @@
 #import "SRAppDelegate.h"
 #import "SRRedditParser.h"
 #import "SRSubredditDataStore.h"
-#import "SRWallpaperChanger.h"
 #import "SRSetupWindowController.h"
 #import "Snappr-Swift.h"
 #import "SRUtils.h"
@@ -18,8 +17,8 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
     [DevMateKit sendTrackingReport:nil delegate:nil];
-    [DevMateKit setupIssuesController:nil reportingUnhandledIssues:YES];
 #ifndef DEBUG
+    [DevMateKit setupIssuesController:nil reportingUnhandledIssues:YES];
     [SRUtils setStartAtLogin:[self appURL] enabled:YES];
 #endif
     [[SUUpdater sharedUpdater] setDelegate: [SRStatistical sharedStatitical]];
@@ -32,7 +31,7 @@
                            userInfo:nil
                             repeats:YES] fire];
     
-    [SRWallpaperChanger sharedChanger];
+    [WallpaperChangerService sharedChanger];
 }
 
 - (void)awakeFromNib {
@@ -45,7 +44,7 @@
 }
 
 - (IBAction)nextWallpaper:(id)sender {
-    [[SRWallpaperChanger sharedChanger] nextWallpaper];
+    [[WallpaperChangerService sharedChanger] nextWallpaper];
 }
 
 - (IBAction)quit:(id)sender {
