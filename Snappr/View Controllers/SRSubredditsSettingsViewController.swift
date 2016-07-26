@@ -25,7 +25,7 @@ class SRSubredditsSettingsViewController: NSViewController, NSTableViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        subredditsTable.setDataSource(SRSubredditDataStore.sharedDatastore())
+        subredditsTable.dataSource = SRSubredditDataStore.sharedDatastore()
     }
     
     @IBAction func segmentControlAction(sender: NSSegmentedControl) {

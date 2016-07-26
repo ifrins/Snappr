@@ -11,6 +11,8 @@
 		1D3237621912A65E009F2EA3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1D3237601912A65E009F2EA3 /* Credits.rtf */; };
 		1D3237661912AEBA009F2EA3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3237651912AEBA009F2EA3 /* WebKit.framework */; };
 		1D32376A1912B3BA009F2EA3 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1D3237691912B3BA009F2EA3 /* dsa_pub.pem */; };
+		1D397DB81D47FD7700DEFACC /* Amplitude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D397DB71D47FD7700DEFACC /* Amplitude.framework */; };
+		1D397DB91D47FD9100DEFACC /* Amplitude.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D397DB71D47FD7700DEFACC /* Amplitude.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D3B33421BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B33401BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift */; };
 		1D3B33431BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3B33411BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib */; };
 		1D433E1B1BBC87C700629815 /* RedditImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D433E1A1BBC87C700629815 /* RedditImage.swift */; };
@@ -59,6 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1D397DB91D47FD9100DEFACC /* Amplitude.framework in CopyFiles */,
 				1DF440EC1D2B009E00E3DD86 /* DevMateKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +75,7 @@
 		1D3237611912A65E009F2EA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		1D3237651912AEBA009F2EA3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1D3237691912B3BA009F2EA3 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		1D397DB71D47FD7700DEFACC /* Amplitude.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Amplitude.framework; sourceTree = "<group>"; };
 		1D3B33401BD163BC00B5D682 /* SRSubredditsSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SRSubredditsSettingsViewController.swift; path = "View Controllers/SRSubredditsSettingsViewController.swift"; sourceTree = "<group>"; };
 		1D3B33411BD163BC00B5D682 /* SRSubredditsSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SRSubredditsSettingsViewController.xib; path = "View Controllers/SRSubredditsSettingsViewController.xib"; sourceTree = "<group>"; };
 		1D433E191BBC87C700629815 /* Snappr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Snappr-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D3237661912AEBA009F2EA3 /* WebKit.framework in Frameworks */,
+				1D397DB81D47FD7700DEFACC /* Amplitude.framework in Frameworks */,
 				1DF2A7B7190D1A5E00DF084F /* Cocoa.framework in Frameworks */,
 				1DF440EB1D2AFFF200E3DD86 /* DevMateKit.framework in Frameworks */,
 			);
@@ -196,6 +201,7 @@
 		1DF2A7B5190D1A5E00DF084F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D397DB71D47FD7700DEFACC /* Amplitude.framework */,
 				1D3237651912AEBA009F2EA3 /* WebKit.framework */,
 				1D505757190D757400150FFF /* libcommonCrypto.dylib */,
 				1DF2A7B6190D1A5E00DF084F /* Cocoa.framework */,
@@ -589,6 +595,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
+					"$(PROJECT_DIR)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
@@ -597,6 +604,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Snappr/Snappr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -623,12 +631,14 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
+					"$(PROJECT_DIR)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.snappr.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Snappr/Snappr-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

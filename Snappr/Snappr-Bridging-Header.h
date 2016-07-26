@@ -3,6 +3,7 @@
 //
 
 #import "SRSubredditDataStore.h"
-#import "SRWallpaperChanger.h"
 #import "SRRedditParser.h"
 #import "NSString+MD5.h"
+
+#import <Amplitude/Amplitude.h>

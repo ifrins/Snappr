@@ -7,7 +7,6 @@
 
 #import "SRSetupWindowController.h"
 #import "SRSubredditDataStore.h"
-#import "SRWallpaperChanger.h"
 #import "Snappr-Swift.h"
 
 @interface SRSetupWindowController ()

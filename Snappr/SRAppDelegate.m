@@ -11,12 +11,15 @@
 #import "SRSetupWindowController.h"
 #import "Snappr-Swift.h"
 #import "SRUtils.h"
+#import <Amplitude/Amplitude.h>
+
 
 @implementation SRAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
     [DevMateKit sendTrackingReport:nil delegate:nil];
+    [[Amplitude instance] initializeApiKey:@"cd7b44895a1b31e4c35e101cf316285e"];
 #ifndef DEBUG
     [DevMateKit setupIssuesController:nil reportingUnhandledIssues:YES];
     [SRUtils setStartAtLogin:[self appURL] enabled:YES];
@@ -36,11 +39,17 @@
 
 - (void)awakeFromNib {
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    [_statusItem setMenu:_statusMenu];
+    [_statusItem setTarget:self];
+    [_statusItem setAction:@selector(openMenu)];
     [_statusItem setHighlightMode:YES];
     NSImage *menubarIcon = [NSImage imageNamed:@"MenuBar"];
     [menubarIcon setTemplate:YES];
     [_statusItem setImage:menubarIcon];
+}
+
+- (void)openMenu {
+    [[Amplitude instance] logEvent:@"MENU_OPEN"];
+    [_statusItem popUpStatusItemMenu:_statusMenu];
 }
 
 - (IBAction)nextWallpaper:(id)sender {
