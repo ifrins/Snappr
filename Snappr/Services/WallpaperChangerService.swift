@@ -36,7 +36,7 @@ import Foundation
     
     func nextWallpaper() {
         print("Next wallpaper…")
-        Amplitude.instance().logEvent("NEXT_WALLPAPER")
+        SRStatistical.sharedStatitical.trackEvent(.WALLPAPER_CHANGE)
         let globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
         
         dispatch_async(globalQueue, {
@@ -152,7 +152,7 @@ import Foundation
         let imagesPath = SRSettings.imagesPath
         
         let imgRep = imageData.representations[0] as! NSBitmapImageRep
-        let imageData = imgRep.representationUsingType(.PNG,
+        let imageData = imgRep.representationUsingType(.NSPNGFileType,
                                                        properties: [:])
         
         let imageHash = refImage.getHash()
@@ -187,9 +187,7 @@ import Foundation
         notification.informativeText = NSLocalizedString("New Wallpaper", comment: "New wallpaper notification test")
         notification.userInfo = ["link" : imageLink]
         
-        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
-        
-        SRStatistical.sharedStatitical.trackWallpaperChange()
+        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)        
     }
     
     private func sizeWillSupportScreenSize(realSize: NSSize, screenResolution: NSSize) -> Bool {

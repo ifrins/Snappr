@@ -11,7 +11,6 @@
 #import "SRSetupWindowController.h"
 #import "Snappr-Swift.h"
 #import "SRUtils.h"
-#import <Amplitude/Amplitude.h>
 
 
 @implementation SRAppDelegate
@@ -19,12 +18,11 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
     [DevMateKit sendTrackingReport:nil delegate:nil];
-    [[Amplitude instance] initializeApiKey:@"cd7b44895a1b31e4c35e101cf316285e"];
+    
 #ifndef DEBUG
     [DevMateKit setupIssuesController:nil reportingUnhandledIssues:YES];
     [SRUtils setStartAtLogin:[self appURL] enabled:YES];
 #endif
-    [[SUUpdater sharedUpdater] setDelegate: [SRStatistical sharedStatitical]];
     [[SUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:YES];
     [[SUUpdater sharedUpdater] setAutomaticallyDownloadsUpdates:YES];
     
@@ -48,11 +46,12 @@
 }
 
 - (void)openMenu {
-    [[Amplitude instance] logEvent:@"MENU_OPEN"];
+    [[SRStatistical sharedStatitical] trackOpenMenu];
     [_statusItem popUpStatusItemMenu:_statusMenu];
 }
 
 - (IBAction)nextWallpaper:(id)sender {
+    [[SRStatistical sharedStatitical] trackForcedWallpaperChange];
     [[WallpaperChangerService sharedChanger] nextWallpaper];
 }
 
@@ -61,6 +60,7 @@
 }
 
 - (IBAction)openAbout:(id)sender {
+    [[SRStatistical sharedStatitical] trackOpenAbout];
     [NSApp orderFrontStandardAboutPanel:sender];
 }
 
@@ -80,6 +80,8 @@
 }
 
 - (IBAction)openSettings:(id)sender {
+    [[SRStatistical sharedStatitical] trackOpenSettings];
+    
     if (_settingsWindowController == nil) {
         _settingsWindowController = [[SRSetupWindowController alloc] initWithWindowNibName:@"SRSetupWindowController"];
     }
@@ -90,6 +92,8 @@
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center
        didActivateNotification:(NSUserNotification *)notification {
+    [[SRStatistical sharedStatitical] trackOpenNotification];
+    
     NSDictionary* userData = [notification userInfo];
     
     if ([[userData allKeys] containsObject:@"link"]) {
