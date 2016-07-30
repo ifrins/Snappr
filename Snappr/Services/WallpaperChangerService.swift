@@ -304,7 +304,7 @@ import Foundation
             for screen in screens {
                 let screenImageURL = workspace.desktopImageURLForScreen(screen)!
                 
-                if screenImageURL == fileURL {
+                if screenImageURL != fileURL {
                     try? workspace.setDesktopImageURL(fileURL,
                                                       forScreen: screen,
                                                       options: [:])
