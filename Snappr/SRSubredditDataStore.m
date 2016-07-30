@@ -47,8 +47,10 @@
 }
 
 - (void)removeSubreddit:(NSInteger) index; {
-    [_subredditArray removeObjectAtIndex:index];
-    [self save];
+    if ([_subredditArray count] > index) {
+        [_subredditArray removeObjectAtIndex:index];
+        [self save];
+    }
 }
 
 - (void)save {
