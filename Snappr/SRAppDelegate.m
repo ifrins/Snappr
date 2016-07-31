@@ -23,6 +23,7 @@
     [DevMateKit setupIssuesController:nil reportingUnhandledIssues:YES];
     [SRUtils setStartAtLogin:[self appURL] enabled:YES];
 #endif
+    [[SUUpdater sharedUpdater] setDelegate:self];
     [[SUUpdater sharedUpdater] setAutomaticallyChecksForUpdates:YES];
     [[SUUpdater sharedUpdater] setAutomaticallyDownloadsUpdates:YES];
     
