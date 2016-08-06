@@ -180,14 +180,17 @@ import Foundation
     }
     
     private func sendNotificationForImage(image: RedditImage) {
-        let imageLink = image.redditURL!.description
-        
-        let notification = NSUserNotification()
-        notification.title = image.title
-        notification.informativeText = NSLocalizedString("New Wallpaper", comment: "New wallpaper notification test")
-        notification.userInfo = ["link" : imageLink]
-        
-        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)        
+        let imageUrl = image.redditURL
+        if imageUrl != nil {
+            let imageLink = imageUrl!.description
+            
+            let notification = NSUserNotification()
+            notification.title = image.title
+            notification.informativeText = NSLocalizedString("New Wallpaper", comment: "New wallpaper notification test")
+            notification.userInfo = ["link" : imageLink]
+            
+            NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
+        }
     }
     
     private func sizeWillSupportScreenSize(realSize: NSSize, screenResolution: NSSize) -> Bool {
