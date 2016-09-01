@@ -7,10 +7,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class RedditImage;
+
 @interface SRRedditParser : NSObject
 
-+ (SRRedditParser *)sharedParser;
++ (nonnull SRRedditParser *)sharedParser;
 
-- (NSArray *)getImagesFor:(NSString *)subreddit;
+- (nonnull NSArray<RedditImage *> *)getImagesFor:(nonnull NSString *)subreddit;
 
 @end

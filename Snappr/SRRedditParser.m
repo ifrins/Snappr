@@ -21,7 +21,7 @@
     return shared;
 }
 
-- (NSArray *)getImagesFor:(NSString *)subreddit {
+- (nonnull NSArray<RedditImage *> *)getImagesFor:(NSString *)subreddit {
     NSMutableArray *imagesArray = [[NSMutableArray alloc] init];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.reddit.com/r/%@/hot.json", subreddit]];
@@ -41,7 +41,7 @@
     
     if (error != nil || subredditData == nil) {
         NSLog(@"***ERROR! Fetching data: %@ ***", error);
-        return nil;
+        return imagesArray;
     }
     
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:subredditData
@@ -52,6 +52,7 @@
     
     if (error != nil) {
         NSLog(@"**ERROR! Parsing data: %@ ***", error);
+        return imagesArray;
     }
     
     NSArray *childrenPosts = (NSArray*) [(NSDictionary*)[result objectForKey:@"data"] objectForKey:@"children"];

@@ -152,7 +152,7 @@ import Foundation
         let imagesPath = SRSettings.imagesPath
         
         let imgRep = imageData.representations[0] as! NSBitmapImageRep
-        let imageData = imgRep.representationUsingType(.NSPNGFileType,
+        let imageData = imgRep.representationUsingType(.PNG,
                                                        properties: [:])
         
         let imageHash = refImage.getHash()
@@ -239,7 +239,7 @@ import Foundation
         let subreddits = SRSubredditDataStore.sharedDatastore().subredditArray as! [String]
         
         for subreddit in subreddits {
-            let subredditImages = SRRedditParser.sharedParser().getImagesFor(subreddit) as! [RedditImage]
+            let subredditImages = SRRedditParser.sharedParser().getImagesFor(subreddit)
             allImages.appendContentsOf(subredditImages)
         }
         
